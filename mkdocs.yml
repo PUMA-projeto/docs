@@ -55,11 +55,15 @@ use_directory_urls: true
 nav:
   - Home: index.md
   - Projeto:
-    - Overview: project/overview.md
-    - Ferramentas: project/tools.md
+      - Ferramentas: projeto/ferramentas.md
+      - Arquitetura: projeto/arquitetura.md
+      - Ferramentas: projeto/ferramentas.md
   - Produto:
-    - MVP: product/mvp.md
-    - Backlog: product/backlog.md
+      - Visão Geral: produto/overview.md
+      - MVP: projeto/mvp.md
+      - Backlog: projeto/product-backlog-building.md
+      - API: produto/api.md
+      - Banco de Dados: produto/database.md
   - Setup & Configuration:
       - MkDocs:
           - MkDocs Configuration: setup/mkdocs-configuration.md

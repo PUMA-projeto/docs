@@ -1,6 +1,6 @@
 # Produto Mínimo Viável (MVP)
 
-[← Voltar para a Página Principal](../../index.md)
+[← Voltar para a Página Principal](../index.md)
 
 O **Produto Mínimo Viável (MVP)** representa a primeira versão funcional do sistema que entrega valor central aos usuários com o mínimo esforço de desenvolvimento. Este documento descreve o escopo, funcionalidades e critérios de sucesso para a fase do MVP.
 
@@ -75,12 +75,10 @@ O MVP serve como base para validação do produto e melhorias futuras. Ao focar 
 
 ---
 
-Para atualizações sobre o progresso do MVP, consulte o [Roteiro do Projeto](../management/roadmap.md).
-
 # Histórico de Revisões
 
 | Data       | Versão | Alterações           | Autores                                                                                         |
 | ---------- | ------ | -------------------- | ----------------------------------------------------------------------------------------------- |
-| AAAA-MM-DD | X.X    | Criação do documento | [Exemplo Autor 1](https://github.com/exemplo1) e [Exemplo Autor 2](https://github.com/exemplo2) |
+| 25/04/2025 | 0.1    | Criação do documento | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
 
-[← Voltar para a Página Principal](../../index.md)
+[← Voltar para a Página Principal](../index.md)

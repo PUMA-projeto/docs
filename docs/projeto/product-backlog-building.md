@@ -1,6 +1,6 @@
 # Construção do Backlog do Produto
 
-[← Voltar para a Página Principal](../../index.md)
+[← Voltar para a Página Principal](../index.md)
 
 ## Guia para Revisar Esta Documentação
 
@@ -107,4 +107,4 @@ O backlog do projeto é uma lista estruturada de todas as tarefas, funcionalidad
 | ---------- | ------ | -------------------- | ----------------------------------------------------------------------------------------------- |
 | 25/04/2025 | 0.1    | Criação do documento | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
 
-[← Voltar para a Página Principal](../../index.md)
+[← Voltar para a Página Principal](../index.md)
