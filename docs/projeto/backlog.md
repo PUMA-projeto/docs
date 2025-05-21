@@ -62,17 +62,31 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 ### 7. Times
 
-| Atividade                         | User Story                                                 | Tarefa Técnica                                               |
-| --------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
-| Acompanhar times                  | ...professor ou admin, quero visualizar os times formados  | Tela de listagem com filtros por projeto, disciplina e turma |
-| Gerenciar times                   | ...professor ou admin, quero organizar os times            | Interface de gerenciamento de times                          |
-| Alocar/Realocar times por projeto | ...professor, quero vincular ou mover times entre projetos | Interface para selecionar projeto e alocar/remanejar times   |
+| Atividade                         | User Story                                                        | Tarefa Técnica                                             |
+| --------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| Formar times                      | ...professor ou admin, quero formar os times de discentes         | Interface de criação de times                              |
+| Gerenciar times                   | ...professor ou admin, quero organizar os times                   | Interface de gerenciamento de times                        |
+| Alocar/Realocar times por projeto | ...professor, quero vincular ou mover times entre projetos        | Interface para selecionar projeto e alocar/remanejar times |
+| Meu time                          | ...aluno, quero consultar informações sobre o meu time de projeto | Interface de meu time para aluno                           |
+
+
+### 8. Entregas
+
+| Atividade                    | User Story                                                                                  | Tarefa Técnica                                                |
+| ---------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Realizar nova entrega        | ... aluno, quero realizar uma nova entrega de atividade do time                             | Interface de nova entrega parcial ou final                    |
+| Realizar upload de arquivos  | ... aluno, quero realizar upload de arquivos para compor uma nova entrega de atividade      | Campo de upload de arquivos na realização de uma nova entrega |
+| Visualizar entregas do time  | ... professor ou aluno, quero consultar informações sobre entregas realizadas pelo meu time | Lista de entregas realizadas pelo time                        |
+| Gerenciar entregas do time   | ... professor ou aluno, quero gerenciar informações sobre entregas realizadas pelo meu time | Detalhes de entregas realizadas e Editar entregas realizadas  |
+| Acompanhar entregas da turma | ... professor, quero acompanhar as entregas da turma por time                               | Interface de entregas da turma por time                       |
+
 
 ## Histórico de Revisões
 
-| Data       | Versão | Alterações           | Autores                                                                                         |
-| ---------- | ------ | -------------------- | ----------------------------------------------------------------------------------------------- |
-| 25/04/2025 | 0.1    | Criação do documento | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
-| 20/05/2025 | 0.2    | Atualização para USM | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
+| Data       | Versão | Alterações             | Autores                                                                                         |
+| ---------- | ------ | ---------------------- | ----------------------------------------------------------------------------------------------- |
+| 25/04/2025 | 0.1    | Criação do documento   | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
+| 20/05/2025 | 0.2    | Atualização para USM   | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
+| 21/05/2025 | 0.3    | Atividades de entregas | [Mateus Vieira](https://github.com/matix0) e [Lucas Antunes](https://github.com/LucasGSAntunes) |
 
 [← Voltar para a Página Principal](../index.md)
