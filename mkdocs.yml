@@ -61,9 +61,9 @@ nav:
   - Produto:
       - Visão Geral: produto/overview.md
       - MVP: projeto/mvp.md
-      - Backlog: projeto/product-backlog-building.md
+      - Backlog: projeto/backlog.md
       - API: produto/api.md
-      - Banco de Dados: produto/database.md
+      #- Banco de Dados: produto/database.md
   - Setup & Configuration:
       - MkDocs:
           - MkDocs Configuration: setup/mkdocs-configuration.md
