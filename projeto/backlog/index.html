@@ -1010,7 +1010,7 @@
 <h2 id="objetivo-do-produto">🎯 Objetivo do Produto</h2>
 <p>Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, submetam projetos, organizem disciplinas, turmas e times, e acompanhem o andamento e alocação de projetos.</p>
 <h2 id="funcionalidades-mapeadas">✅ Funcionalidades Mapeadas</h2>
-<h3 id="1-explorar-o-puma-landing-page-pre-login">1. Explorar o Puma (Landing Page Pré-login)</h3>
+<h3 id="1-pagina-publica-explorar-o-puma">1. Página Pública (Explorar o Puma)</h3>
 <table>
 <thead>
 <tr>
@@ -1022,22 +1022,32 @@
 <tbody>
 <tr>
 <td>Navegar pelas informações</td>
-<td>...usuário visitante, quero conhecer o que é o Puma</td>
-<td>Implementar landing page com seções como “O que é”, “Edital”, “Metodologia”</td>
+<td>...como visitante, quero conhecer o que é o Puma</td>
+<td>Implementar landing page com seções: "O que é", "Metodologia", "Benefícios"</td>
 </tr>
 <tr>
-<td>Acessar o edital</td>
-<td>...usuário visitante, quero acessar o edital</td>
-<td>Botão com link para edital</td>
+<td>Acessar documentos públicos</td>
+<td>...como visitante, quero acessar o edital, regulamento e benefícios</td>
+<td>Botões e links na landing page para documentos</td>
 </tr>
 <tr>
-<td>Ver benefícios</td>
-<td>...candidato, quero entender os benefícios</td>
-<td>Sessão com lista de benefícios</td>
+<td>Gerenciar conteúdo da página</td>
+<td>...como admin, quero editar texto, imagens e seções da página pública</td>
+<td>CRUD de conteúdo da landing page</td>
+</tr>
+<tr>
+<td>Monitorar acessos</td>
+<td>...como admin, quero gerar relatórios dos acessos à página</td>
+<td>Implementar tracking de visitas e gerar dashboards</td>
+</tr>
+<tr>
+<td>Analisar comportamento</td>
+<td>...como admin, quero entender o comportamento dos visitantes</td>
+<td>Ferramenta de análise de interações</td>
 </tr>
 </tbody>
 </table>
-<h3 id="2-cadastro-e-login">2. Cadastro e Login</h3>
+<h3 id="2-cadastro-login-e-controle-de-acesso">2. Cadastro, Login e Controle de Acesso</h3>
 <table>
 <thead>
 <tr>
@@ -1049,22 +1059,111 @@
 <tbody>
 <tr>
 <td>Realizar cadastro</td>
-<td>...usuário novo, quero me cadastrar para acessar o sistema</td>
-<td>Fluxo em 3 etapas com upload de foto (opcional), formulário e confirmação</td>
+<td>...como visitante, quero me cadastrar para acessar o sistema</td>
+<td>Fluxo de cadastro com formulário, upload de foto e confirmação</td>
 </tr>
 <tr>
 <td>Fazer login</td>
-<td>...usuário, quero acessar minha conta</td>
-<td>Formulário com campos de email e senha</td>
+<td>...como usuário, quero acessar minha conta</td>
+<td>Formulário com email e senha</td>
 </tr>
 <tr>
-<td>Escolher tipo de usuário</td>
-<td>...novo usuário, quero escolher se sou estudante, professor ou agente externo</td>
-<td>Dropdown de seleção de perfil</td>
+<td>Definir papel no cadastro</td>
+<td>...como usuário, quero escolher se sou aluno, professor ou agente externo</td>
+<td>Dropdown para seleção de papel</td>
+</tr>
+<tr>
+<td>Gerenciar papéis e permissões</td>
+<td>...como admin, quero atribuir ou alterar papéis e permissões de usuários</td>
+<td>Interface de gestão de papéis e permissões</td>
 </tr>
 </tbody>
 </table>
-<h3 id="3-submissao-de-projetos">3. Submissão de Projetos</h3>
+<h3 id="3-usuarios-gestao-e-busca">3. Usuários (Gestão e Busca)</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>User Story</th>
+<th>Tarefa Técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Criar usuário manualmente</td>
+<td>...como admin, quero cadastrar novos professores, agentes externos ou alunos</td>
+<td>Formulário de cadastro manual</td>
+</tr>
+<tr>
+<td>Editar ou remover usuário</td>
+<td>...como admin, quero editar dados ou excluir usuários</td>
+<td>CRUD de usuários</td>
+</tr>
+<tr>
+<td>Listar usuários</td>
+<td>...como admin/professor, quero visualizar todos os usuários ou só os da minha turma</td>
+<td>Tela de listagem com filtros por papel, turma, disciplina</td>
+</tr>
+<tr>
+<td>Filtrar usuários</td>
+<td>...como admin/professor, quero buscar usuários por nome, papel ou status</td>
+<td>Implementar filtros e pesquisa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-disciplinas-e-turmas">4. Disciplinas e Turmas</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>User Story</th>
+<th>Tarefa Técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Criar e editar disciplinas</td>
+<td>...como professor, quero cadastrar e atualizar minhas disciplinas</td>
+<td>Formulário para criação e edição</td>
+</tr>
+<tr>
+<td>Remover disciplinas</td>
+<td>...como admin/professor, quero excluir disciplinas que não são mais usadas</td>
+<td>Botão de excluir com confirmação</td>
+</tr>
+<tr>
+<td>Listar disciplinas</td>
+<td>...como aluno/professor, quero visualizar as disciplinas disponíveis</td>
+<td>Tela com lista de disciplinas</td>
+</tr>
+<tr>
+<td>Filtrar disciplinas</td>
+<td>...como aluno/professor, quero filtrar por nome, professor ou semestre</td>
+<td>Implementar filtros na tela de disciplinas</td>
+</tr>
+<tr>
+<td>Inscrição em disciplinas</td>
+<td>...como aluno, quero me inscrever nas disciplinas</td>
+<td>Botão de inscrição nas disciplinas</td>
+</tr>
+<tr>
+<td>Inscrição em turmas e projetos</td>
+<td>...como aluno, quero escolher uma turma vinculada</td>
+<td>Integração entre disciplina, turma e projeto</td>
+</tr>
+<tr>
+<td>Acompanhar progresso</td>
+<td>...como aluno, quero acompanhar meu progresso nas atividades</td>
+<td>Tela de progresso individual</td>
+</tr>
+<tr>
+<td>Gerenciar participação</td>
+<td>...como professor, quero atualizar status e progresso dos alunos</td>
+<td>Interface de acompanhamento dos alunos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-projetos">5. Projetos</h3>
 <table>
 <thead>
 <tr>
@@ -1076,113 +1175,32 @@
 <tbody>
 <tr>
 <td>Submeter projeto</td>
-<td>...stakeholder logado, quero cadastrar uma proposta</td>
-<td>Formulário em 4 etapas com validações</td>
+<td>...como aluno ou agente externo, quero submeter uma proposta de projeto</td>
+<td>Formulário de 4 etapas com upload de documentos</td>
 </tr>
 <tr>
-<td>Escolher identificação</td>
-<td>...usuário, quero me identificar com CPF ou CNPJ</td>
-<td>Componente para seleção e entrada de CPF/CNPJ</td>
+<td>Avaliar propostas</td>
+<td>...como professor, quero analisar propostas recebidas</td>
+<td>Tela com formulário de avaliação</td>
 </tr>
-<tr>
-<td>Anexar documentos</td>
-<td>...stakeholder, quero enviar arquivos de apoio</td>
-<td>Upload de documentos no final do formulário</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-disciplinas">4. Disciplinas</h3>
-<table>
-<thead>
-<tr>
-<th>Atividade</th>
-<th>User Story</th>
-<th>Tarefa Técnica</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Acessar disciplinas</td>
-<td>...usuário professor, quero visualizar e gerenciar minhas disciplinas</td>
-<td>Tela “Minhas Disciplinas” com listagem filtrada por professor logado</td>
-</tr>
-<tr>
-<td>Gerenciar disciplinas</td>
-<td>...professor, quero adicionar, modificar ou excluir disciplinas</td>
-<td>Interface com funcionalidades para gerenciamento de disciplinas</td>
-</tr>
-<tr>
-<td>Ver projetos por disciplina</td>
-<td>...professor, quero acessar os projetos vinculados</td>
-<td>Página de detalhe da disciplina com listagem de projetos</td>
-</tr>
-</tbody>
-</table>
-<h3 id="5-turma">5. Turma</h3>
-<table>
-<thead>
-<tr>
-<th>Atividade</th>
-<th>User Story</th>
-<th>Tarefa Técnica</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Acompanhar turmas</td>
-<td>...professor, quero visualizar as turmas que coordeno</td>
-<td>Tela com listagem de turmas vinculadas</td>
-</tr>
-<tr>
-<td>Gerenciar turmas</td>
-<td>...professor, quero criar, editar ou excluir turmas</td>
-<td>Interface com opções de gerenciamento</td>
-</tr>
-<tr>
-<td>Ver projetos por turma</td>
-<td>...professor, quero visualizar os projetos alocados</td>
-<td>Página de detalhes da turma com listagem de projetos</td>
-</tr>
-</tbody>
-</table>
-<h3 id="6-projetos">6. Projetos</h3>
-<table>
-<thead>
-<tr>
-<th>Atividade</th>
-<th>User Story</th>
-<th>Tarefa Técnica</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td>Acompanhar projetos</td>
-<td>...usuário, quero acompanhar o status dos projetos</td>
-<td>Tela de listagem com status e filtros</td>
+<td>...como professor/admin, quero visualizar status, andamento e responsáveis dos projetos</td>
+<td>Dashboard com status, filtros e busca</td>
 </tr>
 <tr>
-<td>Avaliar propostas de projeto</td>
-<td>...professor, quero analisar propostas recebidas</td>
-<td>Interface de avaliação com formulário de parecer</td>
+<td>Alocar projeto em disciplina/turma</td>
+<td>...como professor, quero vincular projetos às minhas disciplinas ou turmas</td>
+<td>Interface de seleção e atribuição</td>
 </tr>
 <tr>
-<td>Alocar/Realocar projeto em disciplina</td>
-<td>...professor, quero vincular projetos a disciplinas</td>
-<td>Interface de seleção de disciplina e atribuição de projetos</td>
-</tr>
-<tr>
-<td>Alocar/Realocar projeto em turma</td>
-<td>...professor, quero vincular projetos a turmas</td>
-<td>Interface com opção de vincular projeto a turma específica</td>
-</tr>
-<tr>
-<td>Levantar preferência dos alunos</td>
-<td>...professor, quero coletar preferências dos alunos para formar times</td>
-<td>Formulário de preferência e visualização agrupada</td>
+<td>Levantar preferências dos alunos</td>
+<td>...como professor, quero coletar preferências dos alunos para formar times</td>
+<td>Formulário para alunos + visualização agrupada</td>
 </tr>
 </tbody>
 </table>
-<h3 id="7-times">7. Times</h3>
+<h3 id="6-times">6. Times</h3>
 <table>
 <thead>
 <tr>
@@ -1194,27 +1212,27 @@
 <tbody>
 <tr>
 <td>Formar times</td>
-<td>...professor ou admin, quero formar os times de discentes</td>
-<td>Interface de criação de times</td>
+<td>...como professor/admin, quero criar times de alunos</td>
+<td>Interface para criar, adicionar e remover membros</td>
 </tr>
 <tr>
 <td>Gerenciar times</td>
-<td>...professor ou admin, quero organizar os times</td>
-<td>Interface de gerenciamento de times</td>
+<td>...como professor/admin, quero editar ou excluir times</td>
+<td>Interface com opções de edição e exclusão</td>
 </tr>
 <tr>
-<td>Alocar/Realocar times por projeto</td>
-<td>...professor, quero vincular ou mover times entre projetos</td>
-<td>Interface para selecionar projeto e alocar/remanejar times</td>
+<td>Alocar times em projetos</td>
+<td>...como professor, quero vincular ou mover times entre projetos</td>
+<td>Tela de alocação e gerenciamento</td>
 </tr>
 <tr>
-<td>Meu time</td>
-<td>...aluno, quero consultar informações sobre o meu time de projeto</td>
-<td>Interface de meu time para aluno</td>
+<td>Visualizar meu time</td>
+<td>...como aluno, quero consultar as informações do meu time</td>
+<td>Tela "Meu Time" com membros e projetos vinculados</td>
 </tr>
 </tbody>
 </table>
-<h3 id="8-entregas">8. Entregas</h3>
+<h3 id="7-entregas">7. Entregas</h3>
 <table>
 <thead>
 <tr>
@@ -1225,29 +1243,2126 @@
 </thead>
 <tbody>
 <tr>
-<td>Realizar nova entrega</td>
-<td>... aluno, quero realizar uma nova entrega de atividade do time</td>
-<td>Interface de nova entrega parcial ou final</td>
+<td>Criar nova entrega</td>
+<td>...como aluno, quero realizar uma nova entrega parcial ou final</td>
+<td>Interface para submissão</td>
 </tr>
 <tr>
-<td>Realizar upload de arquivos</td>
-<td>... aluno, quero realizar upload de arquivos para compor uma nova entrega de atividade</td>
-<td>Campo de upload de arquivos na realização de uma nova entrega</td>
+<td>Upload de arquivos na entrega</td>
+<td>...como aluno, quero anexar arquivos e mídias nas entregas</td>
+<td>Campo de upload integrado</td>
 </tr>
 <tr>
-<td>Visualizar entregas do time</td>
-<td>... professor ou aluno, quero consultar informações sobre entregas realizadas pelo meu time</td>
-<td>Lista de entregas realizadas pelo time</td>
+<td>Acompanhar entregas do time</td>
+<td>...como aluno/professor, quero visualizar histórico de entregas do meu time</td>
+<td>Lista de entregas</td>
 </tr>
 <tr>
-<td>Gerenciar entregas do time</td>
-<td>... professor ou aluno, quero gerenciar informações sobre entregas realizadas pelo meu time</td>
-<td>Detalhes de entregas realizadas e Editar entregas realizadas</td>
+<td>Validar e dar feedback</td>
+<td>...como professor, quero avaliar, validar e dar feedback sobre as entregas</td>
+<td>Formulário de avaliação + campo de feedback</td>
 </tr>
 <tr>
 <td>Acompanhar entregas da turma</td>
-<td>... professor, quero acompanhar as entregas da turma por time</td>
-<td>Interface de entregas da turma por time</td>
+<td>...como professor, quero acompanhar as entregas da turma agrupadas por time</td>
+<td>Dashboard de entregas por turma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-notificacoes-e-dashboards">8. Notificações e Dashboards</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>User Story</th>
+<th>Tarefa Técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Criar notificações</td>
+<td>...como admin/professor, quero criar templates e mensagens para usuários</td>
+<td>Interface para configurar notificações</td>
+</tr>
+<tr>
+<td>Enviar notificações manuais</td>
+<td>...como admin/professor, quero enviar notificações sobre prazos, atividades ou avisos gerais</td>
+<td>Botão de envio manual</td>
+</tr>
+<tr>
+<td>Enviar notificações automáticas</td>
+<td>...como sistema, quero enviar notificações de status de projetos, entregas e aprovações</td>
+<td>Backend para geração automática</td>
+</tr>
+<tr>
+<td>Criar dashboards</td>
+<td>...como admin/professor, quero configurar dashboards personalizados</td>
+<td>Interface para criação e customização de dashboards</td>
+</tr>
+<tr>
+<td>Aplicar filtros e exportar</td>
+<td>...como admin/professor, quero filtrar dados e exportar relatórios</td>
+<td>Funcionalidade de busca, filtros, exportação em PDF, CSV e Excel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-gestao-de-midias-de-entregas">9. Gestão de Mídias de Entregas</h3>
+<h4 id="upload-de-entregas-parciais">Upload de Entregas Parciais</h4>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>User Story</th>
+<th>Tarefa Técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Realizar upload da entrega parcial</td>
+<td>...como aluno, quero fazer upload de arquivos para submissões parciais do meu projeto</td>
+<td>Campo de upload na interface de entregas parciais</td>
+</tr>
+<tr>
+<td>Substituir arquivos da parcial</td>
+<td>...como aluno, quero substituir arquivos de uma entrega parcial antes do prazo</td>
+<td>Botão de substituir arquivos na entrega parcial</td>
+</tr>
+<tr>
+<td>Armazenar arquivos de parciais</td>
+<td>...como sistema, quero armazenar arquivos de entregas parciais organizados por projeto e time</td>
+<td>Implementar backend com estrutura de armazenamento por projeto/time</td>
+</tr>
+<tr>
+<td>Visualizar minhas parciais</td>
+<td>...como aluno, quero visualizar meus arquivos de entregas parciais organizados por projeto</td>
+<td>Tela de listagem de arquivos das entregas parciais</td>
+</tr>
+<tr>
+<td>Recuperar e visualizar parciais</td>
+<td>...como aluno, quero recuperar e visualizar arquivos enviados nas minhas entregas parciais</td>
+<td>Tela de detalhe da entrega parcial com botão de download</td>
+</tr>
+<tr>
+<td>Acessar parciais dos times</td>
+<td>...como professor, quero visualizar os arquivos das entregas parciais dos times que acompanho</td>
+<td>Tela de acompanhamento de entregas parciais por time</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="upload-de-entregas-finais">Upload de Entregas Finais</h4>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>User Story</th>
+<th>Tarefa Técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Realizar upload da entrega final</td>
+<td>...como aluno, quero realizar upload da minha entrega final do projeto</td>
+<td>Campo de upload na interface de entrega final</td>
+</tr>
+<tr>
+<td>Substituir arquivos da final</td>
+<td>...como aluno, quero substituir arquivos da entrega final enquanto o prazo estiver aberto</td>
+<td>Botão de substituir arquivos na entrega final</td>
+</tr>
+<tr>
+<td>Armazenar arquivos das finais</td>
+<td>...como sistema, quero armazenar os arquivos das entregas finais organizados por projeto e time</td>
+<td>Backend com armazenamento organizado por projeto e time</td>
+</tr>
+<tr>
+<td>Acessar minhas entregas finais</td>
+<td>...como aluno, quero acessar e visualizar os arquivos da minha entrega final</td>
+<td>Tela de listagem das entregas finais com visualização e download</td>
+</tr>
+<tr>
+<td>Avaliar entregas finais</td>
+<td>...como professor, quero acessar os arquivos das entregas finais para realizar a avaliação</td>
+<td>Tela de avaliação com acesso aos arquivos enviados</td>
+</tr>
+<tr>
+<td>Recuperar entregas finais</td>
+<td>...como administrador, quero recuperar os arquivos das entregas finais para auditorias ou registros</td>
+<td>Interface administrativa com busca e acesso aos arquivos das entregas finais</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backlog">Backlog</h2>
+<table>
+<thead>
+<tr>
+<th><strong>TH-ID</strong></th>
+<th><strong>Tema</strong></th>
+<th><strong>EP-ID</strong></th>
+<th><strong>Épico</strong></th>
+<th><strong>FE-ID</strong></th>
+<th><strong>Feature</strong></th>
+<th><strong>US-ID</strong></th>
+<th><strong>User Story</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TH-01</td>
+<td>Página Pública</td>
+<td>EP-01</td>
+<td>Gestão da Página Pública</td>
+<td>FE-01</td>
+<td>Gerenciar Conteúdo da Página</td>
+<td>US-01</td>
+<td>Editar textos e imagens da landing page</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-01</td>
+<td></td>
+<td>US-02</td>
+<td>Gerenciar seções da landing page</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-02</td>
+<td>Gerenciar Links e Documentos</td>
+<td>US-03</td>
+<td>Adicionar novos links na landing page</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-02</td>
+<td></td>
+<td>US-04</td>
+<td>Remover links obsoletos da landing page</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-02</td>
+<td>Acompanhamento de Acessos</td>
+<td>FE-03</td>
+<td>Relatórios de Acesso</td>
+<td>US-05</td>
+<td>Gerar relatórios de acesso à landing page</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-03</td>
+<td></td>
+<td>US-06</td>
+<td>Analisar documentos mais acessados na página</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-04</td>
+<td>Monitoramento de Interações</td>
+<td>US-07</td>
+<td>Monitorar seções mais acessadas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-04</td>
+<td></td>
+<td>US-08</td>
+<td>Entender comportamento dos visitantes</td>
+</tr>
+<tr>
+<td>TH-02</td>
+<td>Autenticação</td>
+<td>EP-03</td>
+<td>Autenticação de Usuário</td>
+<td>FE-05</td>
+<td>Registro de Usuário</td>
+<td>US-09</td>
+<td>Visitante se cadastrar no sistema</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-05</td>
+<td></td>
+<td>US-10</td>
+<td>Administrador cadastrar usuários manualmente</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-06</td>
+<td>Login de Usuário</td>
+<td>US-11</td>
+<td>Usuário realizar login</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-06</td>
+<td></td>
+<td>US-12</td>
+<td>Login seguro para área administrativa</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-04</td>
+<td>Controle de Acesso de Usuário</td>
+<td>FE-07</td>
+<td>Definir Papéis de Usuário</td>
+<td>US-13</td>
+<td>Escolher papel no primeiro acesso</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-07</td>
+<td></td>
+<td>US-14</td>
+<td>Alterar papel de usuários</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-08</td>
+<td>Gerenciar Permissões</td>
+<td>US-15</td>
+<td>Definir permissões para cada papel</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-08</td>
+<td></td>
+<td>US-16</td>
+<td>Garantir acesso restrito dos alunos às suas atividades</td>
+</tr>
+<tr>
+<td>TH-03</td>
+<td>Usuário</td>
+<td>EP-05</td>
+<td>Gerenciamento de Usuários</td>
+<td>FE-09</td>
+<td>Criar Usuário</td>
+<td>US-17</td>
+<td>Cadastrar novos professores e agentes externos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-09</td>
+<td></td>
+<td>US-18</td>
+<td>Professor cadastrar agente externo para projetos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-10</td>
+<td>Editar e Remover Usuário</td>
+<td>US-19</td>
+<td>Editar dados de usuários</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-10</td>
+<td></td>
+<td>US-20</td>
+<td>Remover usuários inativos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-06</td>
+<td>Busca e Listagem de Usuários</td>
+<td>FE-11</td>
+<td>Listagem de Usuários</td>
+<td>US-21</td>
+<td>Visualizar lista de usuários</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-11</td>
+<td></td>
+<td>US-22</td>
+<td>Listar apenas alunos vinculados às turmas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-12</td>
+<td>Filtro de Usuários</td>
+<td>US-23</td>
+<td>Filtrar usuários por nome, papel ou status</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-12</td>
+<td></td>
+<td>US-24</td>
+<td>Filtrar alunos nas turmas</td>
+</tr>
+<tr>
+<td>TH-04</td>
+<td>Projeto</td>
+<td>EP-07</td>
+<td>Gerenciamento de Projetos</td>
+<td>FE-13</td>
+<td>Criar e Editar Projetos</td>
+<td>US-25</td>
+<td>Criar projetos vinculados às turmas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-13</td>
+<td></td>
+<td>US-26</td>
+<td>Cadastrar projetos gerais</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-14</td>
+<td>Remover Projetos</td>
+<td>US-27</td>
+<td>Remover projetos não executados</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-14</td>
+<td></td>
+<td>US-28</td>
+<td>Excluir projetos antigos ou obsoletos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-08</td>
+<td>Acompanhamento de Projetos</td>
+<td>FE-15</td>
+<td>Listagem de Projetos</td>
+<td>US-29</td>
+<td>Ver projetos coordenados</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-15</td>
+<td></td>
+<td>US-30</td>
+<td>Ver projetos que participo</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-16</td>
+<td>Filtro de Projetos</td>
+<td>US-31</td>
+<td>Buscar projetos por nome ou disciplina</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-16</td>
+<td></td>
+<td>US-32</td>
+<td>Buscar projetos disponíveis</td>
+</tr>
+<tr>
+<td>TH-05</td>
+<td>Disciplina</td>
+<td>EP-09</td>
+<td>Gerenciamento de Disciplinas</td>
+<td>FE-17</td>
+<td>Criar e Editar Disciplinas</td>
+<td>US-33</td>
+<td>Criar disciplinas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-17</td>
+<td></td>
+<td>US-34</td>
+<td>Cadastrar disciplinas gerais</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-18</td>
+<td>Remover Disciplinas</td>
+<td>US-35</td>
+<td>Remover disciplinas não ofertadas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-18</td>
+<td></td>
+<td>US-36</td>
+<td>Excluir disciplinas obsoletas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-10</td>
+<td>Busca de Disciplinas</td>
+<td>FE-19</td>
+<td>Listagem de Disciplinas</td>
+<td>US-37</td>
+<td>Ver disciplinas ministradas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-19</td>
+<td></td>
+<td>US-38</td>
+<td>Ver disciplinas que estou matriculado</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-20</td>
+<td>Filtro de Disciplinas</td>
+<td>US-39</td>
+<td>Acompanhar progresso dos alunos nas disciplinas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-20</td>
+<td></td>
+<td>US-40</td>
+<td>Acompanhar meu progresso</td>
+</tr>
+<tr>
+<td>TH-06</td>
+<td>Turmas</td>
+<td>EP-11</td>
+<td>Gerenciamento de Turmas</td>
+<td>FE-21</td>
+<td>Criar e Editar Turmas</td>
+<td>US-41</td>
+<td>Criar novas turmas vinculadas às disciplinas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-21</td>
+<td></td>
+<td>US-42</td>
+<td>Cadastrar turmas gerais</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-22</td>
+<td>Remover Turmas</td>
+<td>US-43</td>
+<td>Remover turmas não realizadas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-22</td>
+<td></td>
+<td>US-44</td>
+<td>Excluir turmas inativas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-12</td>
+<td>Acompanhamento de Turmas</td>
+<td>FE-23</td>
+<td>Listagem de Turmas</td>
+<td>US-45</td>
+<td>Listar todas as turmas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-23</td>
+<td></td>
+<td>US-46</td>
+<td>Buscar turmas disponíveis</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-24</td>
+<td>Filtro de Turmas</td>
+<td>US-47</td>
+<td>Consultar informações sobre turmas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-24</td>
+<td></td>
+<td>US-48</td>
+<td>Acompanhar distribuição dos alunos nas turmas</td>
+</tr>
+<tr>
+<td>TH-07</td>
+<td>Time</td>
+<td>EP-13</td>
+<td>Gerenciamento de Times</td>
+<td>FE-25</td>
+<td>Criar Times</td>
+<td>US-49</td>
+<td>Criar times acadêmicos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-25</td>
+<td></td>
+<td>US-50</td>
+<td>Criar times de apoio operacionais</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-26</td>
+<td>Gerenciar Times</td>
+<td>US-51</td>
+<td>Editar, excluir ou reorganizar membros do time</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-26</td>
+<td></td>
+<td>US-52</td>
+<td>Remover times inativos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-14</td>
+<td>Acompanhamento dos Times</td>
+<td>FE-27</td>
+<td>Visualizar Meu Time</td>
+<td>US-53</td>
+<td>Ver informações do meu time</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-27</td>
+<td></td>
+<td>US-54</td>
+<td>Acompanhar status dos times</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-28</td>
+<td>Acompanhar Status dos Times</td>
+<td>US-55</td>
+<td>Gerar relatórios sobre status dos times</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-28</td>
+<td></td>
+<td>US-56</td>
+<td>Visualizar status geral dos times</td>
+</tr>
+<tr>
+<td>TH-08</td>
+<td>Entrega</td>
+<td>EP-15</td>
+<td>Gerenciamento de Entregas</td>
+<td>FE-29</td>
+<td>Criar Nova Entrega</td>
+<td>US-57</td>
+<td>Criar nova entrega parcial ou final</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-29</td>
+<td></td>
+<td>US-58</td>
+<td>Editar uma entrega antes do prazo</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-30</td>
+<td>Acompanhar Entregas</td>
+<td>US-59</td>
+<td>Consultar histórico de entregas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-30</td>
+<td></td>
+<td>US-60</td>
+<td>Visualizar todas as entregas feitas pelos times</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-16</td>
+<td>Validação e Feedback de Entregas</td>
+<td>FE-31</td>
+<td>Validar Entregas</td>
+<td>US-61</td>
+<td>Validar e avaliar entregas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-31</td>
+<td></td>
+<td>US-62</td>
+<td>Solicitar ajustes nas entregas antes da avaliação</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-32</td>
+<td>Feedback de Entregas</td>
+<td>US-63</td>
+<td>Fornecer feedback sobre entregas</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-32</td>
+<td></td>
+<td>US-64</td>
+<td>Visualizar feedback recebido</td>
+</tr>
+<tr>
+<td>TH-09</td>
+<td>Upload</td>
+<td>EP-17</td>
+<td>Upload de Entregas Parciais</td>
+<td>FE-33</td>
+<td>Upload de Entrega Parcial</td>
+<td>US-65</td>
+<td>Fazer upload de arquivos para entregas parciais</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-33</td>
+<td></td>
+<td>US-66</td>
+<td>Substituir arquivos da entrega parcial antes do prazo</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-34</td>
+<td>Organização e Armazenamento Parcial</td>
+<td>US-67</td>
+<td>Visualizar e recuperar arquivos de entregas parciais</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-34</td>
+<td></td>
+<td>US-68</td>
+<td>Acessar arquivos das entregas parciais dos times</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>EP-18</td>
+<td>Upload de Entregas Finais</td>
+<td>FE-35</td>
+<td>Upload de Entrega Final</td>
+<td>US-69</td>
+<td>Realizar upload da entrega final do projeto</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-35</td>
+<td></td>
+<td>US-70</td>
+<td>Substituir arquivos da entrega final antes do prazo</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-36</td>
+<td>Organização e Armazenamento Final</td>
+<td>US-71</td>
+<td>Acessar e visualizar os arquivos da minha entrega final</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>FE-36</td>
+<td></td>
+<td>US-72</td>
+<td>Acessar arquivos das entregas finais para realizar a avaliação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-requisitos-funcionais">1. Requisitos Funcionais</h3>
+<p>Define as <strong>funcionalidades centrais do sistema</strong>. O que o sistema deve fazer.</p>
+<table>
+<thead>
+<tr>
+<th>FR-ID</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01</td>
+<td>O sistema deve possuir um <strong>Portal de Informações para Visitantes Externos (Página Pública)</strong>.</td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td>O sistema deve possuir um <strong>Sistema de Autenticação e Autorização de Usuários</strong>.</td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td>O sistema deve possuir um <strong>Sistema de Gerenciamento de Perfis e Papéis de Usuários</strong>.</td>
+</tr>
+<tr>
+<td>FR-04</td>
+<td>O sistema deve possuir um <strong>Sistema de Submissão e Gerenciamento de Projetos</strong>.</td>
+</tr>
+<tr>
+<td>FR-05</td>
+<td>O sistema deve possuir um <strong>Sistema de Gerenciamento de Disciplinas</strong>.</td>
+</tr>
+<tr>
+<td>FR-06</td>
+<td>O sistema deve possuir um <strong>Sistema de Gerenciamento de Turmas</strong>.</td>
+</tr>
+<tr>
+<td>FR-07</td>
+<td>O sistema deve possuir um <strong>Sistema de Formação e Gestão de Times</strong>.</td>
+</tr>
+<tr>
+<td>FR-08</td>
+<td>O sistema deve possuir um <strong>Sistema de Entregas e Acompanhamento de Submissões de Atividades</strong>.</td>
+</tr>
+<tr>
+<td>FR-09</td>
+<td>O sistema deve possuir um <strong>Sistema de Upload e Gerenciamento de Documentos e Arquivos</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-requisitos-nao-funcionais-isoiec-25010-square">2. Requisitos Não Funcionais – ISO/IEC 25010 (SQuaRE)</h3>
+<table>
+<thead>
+<tr>
+<th>RNF-ID</th>
+<th>Categoria</th>
+<th>Subcategoria</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNF-01</td>
+<td>Desempenho e Eficiência</td>
+<td>Capacidade de resposta</td>
+<td>O sistema deve processar requisições em até 2 segundos para 95% das operações.</td>
+</tr>
+<tr>
+<td>RNF-02</td>
+<td>Desempenho e Eficiência</td>
+<td>Utilização de recursos</td>
+<td>O sistema deve utilizar no máximo 70% de CPU e 75% de memória em cenários de pico.</td>
+</tr>
+<tr>
+<td>RNF-03</td>
+<td>Desempenho e Eficiência</td>
+<td>Capacidade</td>
+<td>O sistema deve suportar até 1000 usuários simultâneos sem degradação perceptível.</td>
+</tr>
+<tr>
+<td>RNF-04</td>
+<td>Confiabilidade</td>
+<td>Disponibilidade</td>
+<td>O sistema deve estar disponível 99,5% do tempo durante dias úteis, exceto janelas de manutenção.</td>
+</tr>
+<tr>
+<td>RNF-05</td>
+<td>Confiabilidade</td>
+<td>Tolerância a falhas</td>
+<td>O sistema deve garantir que falhas parciais não comprometam o funcionamento geral.</td>
+</tr>
+<tr>
+<td>RNF-06</td>
+<td>Confiabilidade</td>
+<td>Recuperabilidade</td>
+<td>O sistema deve ser capaz de se recuperar de falhas críticas em até 5 minutos.</td>
+</tr>
+<tr>
+<td>RNF-07</td>
+<td>Usabilidade</td>
+<td>Apreensibilidade</td>
+<td>O sistema deve permitir que usuários aprendam as principais funcionalidades em até 1 hora.</td>
+</tr>
+<tr>
+<td>RNF-08</td>
+<td>Usabilidade</td>
+<td>Operacionalidade</td>
+<td>O sistema deve ser acessível e funcional tanto em desktop quanto em dispositivos móveis.</td>
+</tr>
+<tr>
+<td>RNF-09</td>
+<td>Usabilidade</td>
+<td>Acessibilidade</td>
+<td>O sistema deve atender os critérios WCAG 2.1 nível AA para acessibilidade.</td>
+</tr>
+<tr>
+<td>RNF-10</td>
+<td>Segurança</td>
+<td>Confidencialidade</td>
+<td>Dados sensíveis devem ser criptografados em repouso e em trânsito.</td>
+</tr>
+<tr>
+<td>RNF-11</td>
+<td>Segurança</td>
+<td>Autenticidade</td>
+<td>O sistema deve possuir autenticação robusta, com suporte a autenticação multifator.</td>
+</tr>
+<tr>
+<td>RNF-12</td>
+<td>Segurança</td>
+<td>Integridade</td>
+<td>As informações não podem ser alteradas sem registro em logs de auditoria.</td>
+</tr>
+<tr>
+<td>RNF-13</td>
+<td>Segurança</td>
+<td>Não repúdio</td>
+<td>Todas as ações críticas devem ser registradas para garantir rastreabilidade.</td>
+</tr>
+<tr>
+<td>RNF-14</td>
+<td>Manutenibilidade</td>
+<td>Modularidade</td>
+<td>O sistema deve ser construído de forma modular para facilitar alterações e manutenções.</td>
+</tr>
+<tr>
+<td>RNF-15</td>
+<td>Manutenibilidade</td>
+<td>Analisabilidade</td>
+<td>Logs detalhados devem ser gerados para diagnóstico de erros e problemas.</td>
+</tr>
+<tr>
+<td>RNF-16</td>
+<td>Manutenibilidade</td>
+<td>Testabilidade</td>
+<td>O sistema deve permitir a realização de testes automatizados de unidade, integração e sistema.</td>
+</tr>
+<tr>
+<td>RNF-17</td>
+<td>Portabilidade</td>
+<td>Adaptabilidade</td>
+<td>O sistema deve ser compatível com navegadores modernos (Chrome, Firefox, Edge, Safari).</td>
+</tr>
+<tr>
+<td>RNF-18</td>
+<td>Portabilidade</td>
+<td>Instalação</td>
+<td>O sistema deve ser passível de implantação via contêiner (Docker) em ambientes cloud e on-premise.</td>
+</tr>
+<tr>
+<td>RNF-19</td>
+<td>Portabilidade</td>
+<td>Substituibilidade</td>
+<td>O backend deve permitir migração entre bancos de dados relacionais (PostgreSQL, MySQL).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-temas">3. Temas</h3>
+<p><strong>Temas</strong> categorizam as <strong>principais áreas do sistema</strong>, agrupando funcionalidades sob tópicos amplos.</p>
+<table>
+<thead>
+<tr>
+<th>FR-ID</th>
+<th>TH-ID</th>
+<th>Tema</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01</td>
+<td>TH-01</td>
+<td>Página Pública</td>
+<td>Gerenciar funcionalidades de acesso a informações públicas (landing page, pré-login).</td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td>TH-02</td>
+<td>Autenticação</td>
+<td>Gerenciar funcionalidades relacionadas ao acesso e segurança do sistema.</td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td>TH-03</td>
+<td>Usuário</td>
+<td>Gerenciar funcionalidades relacionadas a perfis de usuários e controle de papéis.</td>
+</tr>
+<tr>
+<td>FR-04</td>
+<td>TH-04</td>
+<td>Projeto</td>
+<td>Gerenciar funcionalidades de submissão, acompanhamento, avaliação e alocação de projetos.</td>
+</tr>
+<tr>
+<td>FR-05</td>
+<td>TH-05</td>
+<td>Disciplina</td>
+<td>Gerenciar funcionalidades de gestão de disciplinas.</td>
+</tr>
+<tr>
+<td>FR-06</td>
+<td>TH-06</td>
+<td>Turmas</td>
+<td>Gerenciar funcionalidades de gestão de turmas.</td>
+</tr>
+<tr>
+<td>FR-07</td>
+<td>TH-07</td>
+<td>Time</td>
+<td>Gerenciar funcionalidades de formação e organização de times de alunos.</td>
+</tr>
+<tr>
+<td>FR-08</td>
+<td>TH-08</td>
+<td>Entrega</td>
+<td>Gerenciar funcionalidades de entrega, submissão e acompanhamento de atividades.</td>
+</tr>
+<tr>
+<td>FR-09</td>
+<td>TH-09</td>
+<td>Upload</td>
+<td>Gerenciar funcionalidades de upload, armazenamento e recuperação de arquivos.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-epicos">4. Épicos</h3>
+<p>Cada épico é dividido em, no mínimo, duas capacidades, representando subfuncionalidades.</p>
+<table>
+<thead>
+<tr>
+<th>TH-ID</th>
+<th>EP-ID</th>
+<th>Épico</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TH-01</strong></td>
+<td>EP-01</td>
+<td>Gestão da Página Pública</td>
+<td>Gerenciar conteúdo, links, seções e atualizações da página pública (Landing Page).</td>
+</tr>
+<tr>
+<td><strong>TH-01</strong></td>
+<td>EP-02</td>
+<td>Acompanhamento de Acessos</td>
+<td>Monitorar acessos, interações e métricas da página pública para otimização de conteúdo.</td>
+</tr>
+<tr>
+<td><strong>TH-02</strong></td>
+<td>EP-03</td>
+<td>Autenticação de Usuário</td>
+<td>Gerenciar registro e login dos usuários.</td>
+</tr>
+<tr>
+<td><strong>TH-02</strong></td>
+<td>EP-04</td>
+<td>Controle de Acesso de Usuário</td>
+<td>Gerenciar permissões e papéis dos usuários.</td>
+</tr>
+<tr>
+<td><strong>TH-03</strong></td>
+<td>EP-05</td>
+<td>Gerenciamento de Usuários</td>
+<td>Gerenciar cadastro, consulta, edição, remoção e atribuição de papéis dos usuários.</td>
+</tr>
+<tr>
+<td><strong>TH-03</strong></td>
+<td>EP-06</td>
+<td>Busca e Listagem de Usuários</td>
+<td>Gerenciar listagem de usuários e aplicação de filtros.</td>
+</tr>
+<tr>
+<td><strong>TH-04</strong></td>
+<td>EP-07</td>
+<td>Gerenciamento de Projetos</td>
+<td>Gerenciar submissão, acompanhamento, avaliação e alocação de projetos.</td>
+</tr>
+<tr>
+<td><strong>TH-04</strong></td>
+<td>EP-08</td>
+<td>Acompanhamento de Projetos</td>
+<td>Monitorar status, progresso e avaliação de projetos no sistema.</td>
+</tr>
+<tr>
+<td><strong>TH-05</strong></td>
+<td>EP-09</td>
+<td>Gerenciamento de Disciplinas</td>
+<td>Gerenciar criação, edição, remoção e consulta de disciplinas.</td>
+</tr>
+<tr>
+<td><strong>TH-05</strong></td>
+<td>EP-10</td>
+<td>Busca de Disciplinas</td>
+<td>Gerenciar listagem e filtros de disciplinas.</td>
+</tr>
+<tr>
+<td><strong>TH-06</strong></td>
+<td>EP-11</td>
+<td>Gerenciamento de Turmas</td>
+<td>Gerenciar criação, edição, remoção e consulta de turmas.</td>
+</tr>
+<tr>
+<td><strong>TH-06</strong></td>
+<td>EP-12</td>
+<td>Acompanhamento de Turmas</td>
+<td>Visualizar, monitorar e atualizar dados das turmas vinculadas às disciplinas.</td>
+</tr>
+<tr>
+<td><strong>TH-07</strong></td>
+<td>EP-13</td>
+<td>Gerenciamento de Times</td>
+<td>Gerenciar criação, organização, alocação e acompanhamento dos times vinculados aos projetos.</td>
+</tr>
+<tr>
+<td><strong>TH-07</strong></td>
+<td>EP-14</td>
+<td>Acompanhamento dos Times</td>
+<td>Visualizar, monitorar e atualizar dados dos times e seus respectivos projetos.</td>
+</tr>
+<tr>
+<td><strong>TH-08</strong></td>
+<td>EP-15</td>
+<td>Gerenciamento de Entregas</td>
+<td>Gerenciar submissão, acompanhamento e histórico de entregas de atividades pelos times.</td>
+</tr>
+<tr>
+<td><strong>TH-08</strong></td>
+<td>EP-16</td>
+<td>Validação e Feedback de Entregas</td>
+<td>Gerenciar validação, feedback e acompanhamento das entregas realizadas.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-17</td>
+<td>Upload de Entregas Parciais</td>
+<td>Gerenciar funcionalidades de upload, armazenamento e recuperação de entregas parciais.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-18</td>
+<td>Upload de Entregas Finais</td>
+<td>Gerenciar funcionalidades de upload, armazenamento e recuperação de entregas finais.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-features">5. Features</h3>
+<table>
+<thead>
+<tr>
+<th>TH-ID</th>
+<th>EP-ID</th>
+<th>FE-ID</th>
+<th>Feature</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TH-01</strong></td>
+<td>EP-01</td>
+<td>FE-01</td>
+<td>Gerenciar Conteúdo da Página</td>
+<td>Editar texto, links, imagens e seções da landing page pública.</td>
+</tr>
+<tr>
+<td><strong>TH-01</strong></td>
+<td>EP-01</td>
+<td>FE-02</td>
+<td>Gerenciar Links e Documentos</td>
+<td>Adicionar ou remover links para edital, regulamento, benefícios e outros.</td>
+</tr>
+<tr>
+<td><strong>TH-01</strong></td>
+<td>EP-02</td>
+<td>FE-03</td>
+<td>Relatórios de Acesso</td>
+<td>Gerar relatórios de acesso à página pública (visitantes, cliques, tempo de navegação).</td>
+</tr>
+<tr>
+<td><strong>TH-01</strong></td>
+<td>EP-02</td>
+<td>FE-04</td>
+<td>Monitoramento de Interações</td>
+<td>Acompanhar comportamento dos visitantes na página pública para otimizar o conteúdo.</td>
+</tr>
+<tr>
+<td><strong>TH-02</strong></td>
+<td>EP-03</td>
+<td>FE-05</td>
+<td>Registro de Usuário</td>
+<td>Permitir que novos usuários se cadastrem no sistema.</td>
+</tr>
+<tr>
+<td><strong>TH-02</strong></td>
+<td>EP-03</td>
+<td>FE-06</td>
+<td>Login de Usuário</td>
+<td>Permitir que usuários façam login com email e senha.</td>
+</tr>
+<tr>
+<td><strong>TH-02</strong></td>
+<td>EP-04</td>
+<td>FE-07</td>
+<td>Definir Papéis de Usuário</td>
+<td>Permitir que usuários escolham ou sejam atribuídos a papéis (Aluno, Professor, Externo).</td>
+</tr>
+<tr>
+<td><strong>TH-02</strong></td>
+<td>EP-04</td>
+<td>FE-08</td>
+<td>Gerenciar Permissões</td>
+<td>Permitir controle de acesso baseado nos papéis definidos.</td>
+</tr>
+<tr>
+<td><strong>TH-03</strong></td>
+<td>EP-05</td>
+<td>FE-09</td>
+<td>Criar Usuário</td>
+<td>Permitir cadastro manual de novos usuários.</td>
+</tr>
+<tr>
+<td><strong>TH-03</strong></td>
+<td>EP-05</td>
+<td>FE-10</td>
+<td>Editar e Remover Usuário</td>
+<td>Permitir editar informações ou remover usuários do sistema.</td>
+</tr>
+<tr>
+<td><strong>TH-03</strong></td>
+<td>EP-06</td>
+<td>FE-11</td>
+<td>Listagem de Usuários</td>
+<td>Permitir visualizar todos os usuários cadastrados.</td>
+</tr>
+<tr>
+<td><strong>TH-03</strong></td>
+<td>EP-06</td>
+<td>FE-12</td>
+<td>Filtro de Usuários</td>
+<td>Permitir aplicar filtros por nome, email, papel, status, etc.</td>
+</tr>
+<tr>
+<td><strong>TH-04</strong></td>
+<td>EP-07</td>
+<td>FE-13</td>
+<td>Criar e Editar Projetos</td>
+<td>Permitir criar e modificar projetos.</td>
+</tr>
+<tr>
+<td><strong>TH-04</strong></td>
+<td>EP-07</td>
+<td>FE-14</td>
+<td>Remover Projetos</td>
+<td>Permitir excluir projetos quando necessário.</td>
+</tr>
+<tr>
+<td><strong>TH-04</strong></td>
+<td>EP-08</td>
+<td>FE-15</td>
+<td>Listagem de Projetos</td>
+<td>Exibir lista de projetos cadastrados.</td>
+</tr>
+<tr>
+<td><strong>TH-04</strong></td>
+<td>EP-08</td>
+<td>FE-16</td>
+<td>Filtro de Projetos</td>
+<td>Permitir filtrar projetos por nome, disciplina, turma, status, etc.</td>
+</tr>
+<tr>
+<td><strong>TH-05</strong></td>
+<td>EP-09</td>
+<td>FE-17</td>
+<td>Criar e Editar Disciplinas</td>
+<td>Permitir criar e modificar disciplinas.</td>
+</tr>
+<tr>
+<td><strong>TH-05</strong></td>
+<td>EP-09</td>
+<td>FE-18</td>
+<td>Remover Disciplinas</td>
+<td>Permitir excluir disciplinas quando necessário.</td>
+</tr>
+<tr>
+<td><strong>TH-05</strong></td>
+<td>EP-10</td>
+<td>FE-19</td>
+<td>Listagem de Disciplinas</td>
+<td>Exibir lista de disciplinas cadastradas.</td>
+</tr>
+<tr>
+<td><strong>TH-05</strong></td>
+<td>EP-10</td>
+<td>FE-20</td>
+<td>Filtro de Disciplinas</td>
+<td>Permitir filtrar disciplinas por nome, período, professor, etc.</td>
+</tr>
+<tr>
+<td><strong>TH-06</strong></td>
+<td>EP-11</td>
+<td>FE-21</td>
+<td>Criar e Editar Turmas</td>
+<td>Permitir criar e modificar turmas.</td>
+</tr>
+<tr>
+<td><strong>TH-06</strong></td>
+<td>EP-11</td>
+<td>FE-22</td>
+<td>Remover Turmas</td>
+<td>Permitir excluir turmas quando necessário.</td>
+</tr>
+<tr>
+<td><strong>TH-06</strong></td>
+<td>EP-12</td>
+<td>FE-23</td>
+<td>Listagem de Turmas</td>
+<td>Exibir lista de turmas cadastradas.</td>
+</tr>
+<tr>
+<td><strong>TH-06</strong></td>
+<td>EP-12</td>
+<td>FE-24</td>
+<td>Filtro de Turmas</td>
+<td>Permitir filtrar turmas por nome, período, disciplina, etc.</td>
+</tr>
+<tr>
+<td><strong>TH-07</strong></td>
+<td>EP-13</td>
+<td>FE-25</td>
+<td>Criar Times</td>
+<td>Permitir criação de times de alunos vinculados a projetos.</td>
+</tr>
+<tr>
+<td><strong>TH-07</strong></td>
+<td>EP-13</td>
+<td>FE-26</td>
+<td>Gerenciar Times</td>
+<td>Permitir editar, excluir ou reorganizar os times.</td>
+</tr>
+<tr>
+<td><strong>TH-07</strong></td>
+<td>EP-14</td>
+<td>FE-27</td>
+<td>Visualizar Meu Time</td>
+<td>Permitir que alunos visualizem informações sobre seus próprios times.</td>
+</tr>
+<tr>
+<td><strong>TH-07</strong></td>
+<td>EP-14</td>
+<td>FE-28</td>
+<td>Acompanhar Status dos Times</td>
+<td>Permitir que professores e administradores monitorem o status e andamento dos times.</td>
+</tr>
+<tr>
+<td><strong>TH-08</strong></td>
+<td>EP-15</td>
+<td>FE-29</td>
+<td>Criar Nova Entrega</td>
+<td>Permitir que usuários realizem submissões de entregas parciais ou finais.</td>
+</tr>
+<tr>
+<td><strong>TH-08</strong></td>
+<td>EP-15</td>
+<td>FE-30</td>
+<td>Acompanhar Entregas</td>
+<td>Permitir visualizar o histórico de entregas realizadas pelos times.</td>
+</tr>
+<tr>
+<td><strong>TH-08</strong></td>
+<td>EP-16</td>
+<td>FE-31</td>
+<td>Validar Entregas</td>
+<td>Permitir que professores avaliem e validem as entregas realizadas pelos times.</td>
+</tr>
+<tr>
+<td><strong>TH-08</strong></td>
+<td>EP-16</td>
+<td>FE-32</td>
+<td>Feedback de Entregas</td>
+<td>Permitir que professores ou orientadores forneçam feedback sobre as entregas.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-17</td>
+<td>FE-33</td>
+<td>Upload de Entrega Parcial</td>
+<td>Permitir que alunos realizem upload de arquivos para submissões parciais.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-17</td>
+<td>FE-34</td>
+<td>Organização e Armazenamento Parcial</td>
+<td>Organizar e armazenar as entregas parciais vinculadas aos projetos e times.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-17</td>
+<td>FE-35</td>
+<td>Visualizar e Recuperar Entregas</td>
+<td>Permitir que alunos e professores visualizem e recuperem arquivos das entregas parciais.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-18</td>
+<td>FE-36</td>
+<td>Upload de Entrega Final</td>
+<td>Permitir que alunos realizem upload de arquivos para submissões finais do projeto.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-18</td>
+<td>FE-37</td>
+<td>Organização e Armazenamento Final</td>
+<td>Organizar e armazenar as entregas finais vinculadas aos projetos e times.</td>
+</tr>
+<tr>
+<td><strong>TH-09</strong></td>
+<td>EP-18</td>
+<td>FE-38</td>
+<td>Visualizar e Recuperar Entregas</td>
+<td>Permitir que alunos e professores visualizem e recuperem arquivos das entregas finais.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-user-stories">6. User Stories</h3>
+<p>Cada feature possui no mínimo duas user stories, considerando a perspectiva dos diferentes papéis no sistema.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">TH-ID</th>
+<th style="text-align: left;">EP-ID</th>
+<th style="text-align: left;">FE-ID</th>
+<th style="text-align: left;">US-ID</th>
+<th>User Story</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-01</td>
+<td style="text-align: left;">FE-01</td>
+<td style="text-align: left;">US-01</td>
+<td>Como administrador, quero editar textos e imagens da landing page para manter as informações atualizadas.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-01</td>
+<td style="text-align: left;">FE-01</td>
+<td style="text-align: left;">US-02</td>
+<td>Como administrador, quero gerenciar as seções da landing page para destacar informações importantes.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-01</td>
+<td style="text-align: left;">FE-02</td>
+<td style="text-align: left;">US-03</td>
+<td>Como administrador, quero adicionar novos links para documentos importantes na landing page.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-01</td>
+<td style="text-align: left;">FE-02</td>
+<td style="text-align: left;">US-04</td>
+<td>Como administrador, quero remover links obsoletos da landing page para manter o conteúdo relevante.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-02</td>
+<td style="text-align: left;">FE-03</td>
+<td style="text-align: left;">US-05</td>
+<td>Como administrador, quero gerar relatórios de acesso à landing page para entender o volume de visitantes.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-02</td>
+<td style="text-align: left;">FE-03</td>
+<td style="text-align: left;">US-06</td>
+<td>Como gestor, quero analisar quais documentos são mais acessados na página para melhorar sua organização.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-02</td>
+<td style="text-align: left;">FE-04</td>
+<td style="text-align: left;">US-07</td>
+<td>Como administrador, quero monitorar quais seções da página recebem mais acessos para otimizar seu conteúdo.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-01</td>
+<td style="text-align: left;">EP-02</td>
+<td style="text-align: left;">FE-04</td>
+<td style="text-align: left;">US-08</td>
+<td>Como gestor, quero entender o comportamento dos visitantes na página para aprimorar a comunicação pública.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-03</td>
+<td style="text-align: left;">FE-05</td>
+<td style="text-align: left;">US-09</td>
+<td>Como visitante, quero me cadastrar no sistema para submeter projetos ou participar de turmas.</td>
+<td>Visitante</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-03</td>
+<td style="text-align: left;">FE-05</td>
+<td style="text-align: left;">US-10</td>
+<td>Como administrador, quero cadastrar usuários manualmente quando necessário.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-03</td>
+<td style="text-align: left;">FE-06</td>
+<td style="text-align: left;">US-11</td>
+<td>Como usuário, quero fazer login para acessar minhas funcionalidades no sistema.</td>
+<td>Todos</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-03</td>
+<td style="text-align: left;">FE-06</td>
+<td style="text-align: left;">US-12</td>
+<td>Como administrador, quero acessar a área administrativa com login seguro.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-04</td>
+<td style="text-align: left;">FE-07</td>
+<td style="text-align: left;">US-13</td>
+<td>Como usuário, quero escolher meu papel (Aluno, Professor, Agente Externo) no primeiro acesso.</td>
+<td>Todos</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-04</td>
+<td style="text-align: left;">FE-07</td>
+<td style="text-align: left;">US-14</td>
+<td>Como administrador, quero alterar o papel de um usuário quando necessário.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-04</td>
+<td style="text-align: left;">FE-08</td>
+<td style="text-align: left;">US-15</td>
+<td>Como administrador, quero definir as permissões para cada papel no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-02</td>
+<td style="text-align: left;">EP-04</td>
+<td style="text-align: left;">FE-08</td>
+<td style="text-align: left;">US-16</td>
+<td>Como professor, quero garantir que alunos tenham acesso restrito apenas às suas atividades e turmas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-05</td>
+<td style="text-align: left;">FE-09</td>
+<td style="text-align: left;">US-17</td>
+<td>Como administrador, quero cadastrar novos professores e agentes externos no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-05</td>
+<td style="text-align: left;">FE-09</td>
+<td style="text-align: left;">US-18</td>
+<td>Como professor, quero cadastrar um agente externo para apoiar meus projetos.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-05</td>
+<td style="text-align: left;">FE-10</td>
+<td style="text-align: left;">US-19</td>
+<td>Como administrador, quero editar dados de usuários que estejam incorretos.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-05</td>
+<td style="text-align: left;">FE-10</td>
+<td style="text-align: left;">US-20</td>
+<td>Como administrador, quero excluir usuários inativos ou com registros incorretos.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-06</td>
+<td style="text-align: left;">FE-11</td>
+<td style="text-align: left;">US-21</td>
+<td>Como administrador, quero visualizar a lista completa de usuários cadastrados no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-06</td>
+<td style="text-align: left;">FE-11</td>
+<td style="text-align: left;">US-22</td>
+<td>Como professor, quero listar apenas os alunos vinculados às minhas turmas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-06</td>
+<td style="text-align: left;">FE-12</td>
+<td style="text-align: left;">US-23</td>
+<td>Como administrador, quero aplicar filtros para encontrar usuários por nome, papel ou status.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-03</td>
+<td style="text-align: left;">EP-06</td>
+<td style="text-align: left;">FE-12</td>
+<td style="text-align: left;">US-24</td>
+<td>Como professor, quero filtrar alunos nas minhas turmas por nome, matrícula ou status.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-07</td>
+<td style="text-align: left;">FE-13</td>
+<td style="text-align: left;">US-25</td>
+<td>Como professor, quero criar novos projetos para minhas turmas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-07</td>
+<td style="text-align: left;">FE-13</td>
+<td style="text-align: left;">US-26</td>
+<td>Como administrador, quero cadastrar projetos gerais no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-07</td>
+<td style="text-align: left;">FE-14</td>
+<td style="text-align: left;">US-27</td>
+<td>Como professor, quero remover projetos que não serão mais executados.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-07</td>
+<td style="text-align: left;">FE-14</td>
+<td style="text-align: left;">US-28</td>
+<td>Como administrador, quero excluir projetos antigos ou obsoletos.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-08</td>
+<td style="text-align: left;">FE-15</td>
+<td style="text-align: left;">US-29</td>
+<td>Como professor, quero visualizar todos os projetos que estou coordenando.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-08</td>
+<td style="text-align: left;">FE-15</td>
+<td style="text-align: left;">US-30</td>
+<td>Como aluno, quero visualizar os projetos em que estou participando.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-08</td>
+<td style="text-align: left;">FE-16</td>
+<td style="text-align: left;">US-31</td>
+<td>Como professor, quero buscar projetos por nome ou disciplina.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-04</td>
+<td style="text-align: left;">EP-08</td>
+<td style="text-align: left;">FE-16</td>
+<td style="text-align: left;">US-32</td>
+<td>Como aluno, quero buscar projetos disponíveis usando filtros de nome e professor.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-09</td>
+<td style="text-align: left;">FE-17</td>
+<td style="text-align: left;">US-33</td>
+<td>Como professor, quero criar novas disciplinas para minhas turmas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-09</td>
+<td style="text-align: left;">FE-17</td>
+<td style="text-align: left;">US-34</td>
+<td>Como administrador, quero cadastrar disciplinas gerais no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-09</td>
+<td style="text-align: left;">FE-18</td>
+<td style="text-align: left;">US-35</td>
+<td>Como professor, quero remover disciplinas que não serão mais ofertadas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-09</td>
+<td style="text-align: left;">FE-18</td>
+<td style="text-align: left;">US-36</td>
+<td>Como administrador, quero excluir disciplinas antigas ou obsoletas.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-10</td>
+<td style="text-align: left;">FE-19</td>
+<td style="text-align: left;">US-37</td>
+<td>Como professor, quero visualizar todas as disciplinas que estou ministrando.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-10</td>
+<td style="text-align: left;">FE-19</td>
+<td style="text-align: left;">US-38</td>
+<td>Como aluno, quero visualizar as disciplinas em que estou matriculado.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-10</td>
+<td style="text-align: left;">FE-20</td>
+<td style="text-align: left;">US-39</td>
+<td>Como professor, quero acompanhar o progresso dos alunos nas disciplinas e atividades.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-05</td>
+<td style="text-align: left;">EP-10</td>
+<td style="text-align: left;">FE-20</td>
+<td style="text-align: left;">US-40</td>
+<td>Como aluno, quero acompanhar meu próprio progresso nas atividades, disciplinas e projetos.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-11</td>
+<td style="text-align: left;">FE-21</td>
+<td style="text-align: left;">US-41</td>
+<td>Como professor, quero criar novas turmas vinculadas às disciplinas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-11</td>
+<td style="text-align: left;">FE-21</td>
+<td style="text-align: left;">US-42</td>
+<td>Como administrador, quero cadastrar turmas gerais no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-11</td>
+<td style="text-align: left;">FE-22</td>
+<td style="text-align: left;">US-43</td>
+<td>Como professor, quero remover turmas que não serão mais realizadas.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-11</td>
+<td style="text-align: left;">FE-22</td>
+<td style="text-align: left;">US-44</td>
+<td>Como administrador, quero excluir turmas antigas ou inativas.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-12</td>
+<td style="text-align: left;">FE-23</td>
+<td style="text-align: left;">US-45</td>
+<td>Como professor, quero listar todas as turmas sob minha responsabilidade.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-12</td>
+<td style="text-align: left;">FE-23</td>
+<td style="text-align: left;">US-46</td>
+<td>Como aluno, quero buscar turmas disponíveis usando filtros.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-12</td>
+<td style="text-align: left;">FE-24</td>
+<td style="text-align: left;">US-47</td>
+<td>Como professor, quero consultar rapidamente informações sobre as turmas que acompanho.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-06</td>
+<td style="text-align: left;">EP-12</td>
+<td style="text-align: left;">FE-24</td>
+<td style="text-align: left;">US-48</td>
+<td>Como administrador, quero acompanhar a distribuição de alunos nas turmas.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-13</td>
+<td style="text-align: left;">FE-25</td>
+<td style="text-align: left;">US-49</td>
+<td>Como professor, quero criar times de alunos para projetos.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-13</td>
+<td style="text-align: left;">FE-25</td>
+<td style="text-align: left;">US-50</td>
+<td>Como administrador, quero criar times operacionais ou de apoio no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-13</td>
+<td style="text-align: left;">FE-26</td>
+<td style="text-align: left;">US-51</td>
+<td>Como professor, quero editar, excluir ou reorganizar os membros dos times.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-13</td>
+<td style="text-align: left;">FE-26</td>
+<td style="text-align: left;">US-52</td>
+<td>Como administrador, quero remover times inativos do sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-14</td>
+<td style="text-align: left;">FE-27</td>
+<td style="text-align: left;">US-53</td>
+<td>Como aluno, quero acessar informações do meu time, membros e projetos.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-14</td>
+<td style="text-align: left;">FE-27</td>
+<td style="text-align: left;">US-54</td>
+<td>Como professor, quero acompanhar o status dos times que estou coordenando.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-14</td>
+<td style="text-align: left;">FE-28</td>
+<td style="text-align: left;">US-55</td>
+<td>Como professor, quero gerar relatórios sobre o status dos times.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-07</td>
+<td style="text-align: left;">EP-14</td>
+<td style="text-align: left;">FE-28</td>
+<td style="text-align: left;">US-56</td>
+<td>Como administrador, quero visualizar o status geral dos times no sistema.</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-15</td>
+<td style="text-align: left;">FE-29</td>
+<td style="text-align: left;">US-57</td>
+<td>Como aluno, quero criar uma nova entrega parcial ou final do meu projeto.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-15</td>
+<td style="text-align: left;">FE-29</td>
+<td style="text-align: left;">US-58</td>
+<td>Como aluno, quero editar uma entrega antes do prazo final.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-15</td>
+<td style="text-align: left;">FE-30</td>
+<td style="text-align: left;">US-59</td>
+<td>Como aluno, quero consultar o histórico de entregas do meu time.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-15</td>
+<td style="text-align: left;">FE-30</td>
+<td style="text-align: left;">US-60</td>
+<td>Como professor, quero visualizar todas as entregas feitas pelos meus times.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-16</td>
+<td style="text-align: left;">FE-31</td>
+<td style="text-align: left;">US-61</td>
+<td>Como professor, quero validar e avaliar as entregas realizadas pelos alunos.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-16</td>
+<td style="text-align: left;">FE-31</td>
+<td style="text-align: left;">US-62</td>
+<td>Como professor, quero solicitar ajustes nas entregas antes de finalizar a avaliação.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-16</td>
+<td style="text-align: left;">FE-32</td>
+<td style="text-align: left;">US-63</td>
+<td>Como professor, quero fornecer feedback sobre as entregas para auxiliar no desenvolvimento dos alunos.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-08</td>
+<td style="text-align: left;">EP-16</td>
+<td style="text-align: left;">FE-32</td>
+<td style="text-align: left;">US-64</td>
+<td>Como aluno, quero visualizar os feedbacks recebidos sobre minhas entregas.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-17</td>
+<td style="text-align: left;">FE-33</td>
+<td style="text-align: left;">US-65</td>
+<td>Como aluno, quero fazer upload de arquivos para submissões parciais do meu projeto.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-17</td>
+<td style="text-align: left;">FE-33</td>
+<td style="text-align: left;">US-66</td>
+<td>Como aluno, quero substituir arquivos de uma entrega parcial antes do prazo.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-17</td>
+<td style="text-align: left;">FE-34</td>
+<td style="text-align: left;">US-67</td>
+<td>Como aluno, quero visualizar e recuperar meus arquivos de entregas parciais.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-17</td>
+<td style="text-align: left;">FE-34</td>
+<td style="text-align: left;">US-68</td>
+<td>Como professor, quero acessar os arquivos das entregas parciais dos times que acompanho.</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-18</td>
+<td style="text-align: left;">FE-35</td>
+<td style="text-align: left;">US-69</td>
+<td>Como aluno, quero realizar upload da minha entrega final do projeto.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-18</td>
+<td style="text-align: left;">FE-35</td>
+<td style="text-align: left;">US-70</td>
+<td>Como aluno, quero substituir arquivos da entrega final enquanto o prazo estiver aberto.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-18</td>
+<td style="text-align: left;">FE-36</td>
+<td style="text-align: left;">US-71</td>
+<td>Como aluno, quero acessar e visualizar os arquivos da minha entrega final.</td>
+<td>Aluno</td>
+</tr>
+<tr>
+<td style="text-align: left;">TH-09</td>
+<td style="text-align: left;">EP-18</td>
+<td style="text-align: left;">FE-36</td>
+<td style="text-align: left;">US-72</td>
+<td>Como professor, quero acessar os arquivos das entregas finais para realizar a avaliação.</td>
+<td>Professor</td>
 </tr>
 </tbody>
 </table>
@@ -1278,6 +3393,12 @@
 <td>21/05/2025</td>
 <td>0.3</td>
 <td>Atividades de entregas</td>
+<td><a href="https://github.com/matix0">Mateus Vieira</a> e <a href="https://github.com/LucasGSAntunes">Lucas Antunes</a></td>
+</tr>
+<tr>
+<td>18/06/2025</td>
+<td>0.4</td>
+<td>Atualização do mapeamento de funcionalidade e backlog</td>
 <td><a href="https://github.com/matix0">Mateus Vieira</a> e <a href="https://github.com/LucasGSAntunes">Lucas Antunes</a></td>
 </tr>
 </tbody>
