@@ -1,0 +1,14 @@
+.md-sidebar {
+    max-width: 100%;
+    overflow-x: visible;
+    box-sizing: content-box;
+    word-break: break-word;
+    position: relative;
+    z-index: 1;
+    height: 100%; /* Sidebar ocupa toda a altura do container pai */
+}
+
+footer {
+    position: relative;
+    z-index: 2;
+}
