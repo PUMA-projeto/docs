@@ -1,0 +1,2533 @@
+openapi: '3.0.3'
+info:
+  title: PUMA API
+  description: |
+    Documentação da API do PUMA. Mantenha essa documentação atualizada para o
+    correto funcionamento das rotas.
+  version: '1.0.0'
+servers:
+  - url: http://localhost:3001
+    description: Development
+tags:
+  - name: Users
+    description: Módulo de usuários
+  - name: Projects
+    description: Módulo de projetos
+  - name: Class
+    description: Módulo de Class
+  - name: Class - Ingresso na Turma
+    description: Módulo de Class - Ingresso na Turma
+  - name: Keywords
+    description: Módulo de palavras-chaves
+  - name: Professors
+    description: Módulo de professores
+  - name: Subjects
+    description: Módulo de disciplinas
+  - name: Areas
+    description: Módulo de áreas, subáreas e áreas de conhecimento
+  - name: Categorias
+    description: Módulo de categorias
+  - name: Files
+    description: Módulo de armazenamento de arquivos
+  - name: Mail
+    description: Módulo de envio de emails
+  - name: Competences
+    description: Módulo de competências
+  - name: Avaliação por pares
+    description: Modulo de avaliação por pares
+paths:
+  /solicitation/create:
+    post:
+      x-api: projectservice
+      tags:
+        - Avaliação por pares
+      security: []
+      summary: Criação de solicitação de avaliação por pares
+      Description: Cria solicitação de avaliação por pares, com as turmas e competencias associadas
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name: 
+                  type: string
+                classIds: 
+                  type: array
+                startDate: 
+                  type: string
+                endDate:
+                  type: string
+                microCompetenceIds:
+                  type: array
+              required:
+                - classIds
+                - startDate
+                - endDate
+                - microCompetenceIds
+  /solicitations:
+    get:
+      x-api: projectservice
+      tags:
+        - Avaliação por pares
+      security: []
+      description: Retorna solicitações de avaliação por pares 
+      parameters:
+        - name: creatorId
+          in: query
+          type: integer
+          required: false
+        - name: classId
+          in: query
+          type: string
+          required: false
+        - name: competence
+          in: query
+          type: boolean
+          required: false
+        - name: class
+          in: query
+          type: boolean
+          required: false
+        - name: creator
+          in: query
+          type: boolean
+          required: false
+      responses:
+        '200':
+          description: Sucesso
+  /competence/macro/{macroComptenceId}:
+    delete:
+      x-api: projectservice
+      tags:
+        - Competences
+      security: []
+      description: Deleta Macro competencias com o macroComptenceId especificado
+      parameters:
+        - name: macroComptenceId
+          in: path
+          description: Id da macro competencia que será excluida.
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Sucesso
+  /competences/{creatorId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Competences
+      security: []
+      description: Retorna todas as competencias cadastradas.
+      parameters:
+        - name: creatorId
+          in: query
+          description: ID do usuário criador das competências.
+          type: integer
+          required: false
+      responses:
+        '200':
+          description: Sucesso
+  /competences:
+    post:
+      x-api: projectservice
+      tags:
+        - Competences
+      security: []
+      description: Envia lista de competencias para cadastro.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                macros:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      micros:
+                        type: array
+                        properties:
+                          name:
+                            type: string
+                          description:
+                            type: array
+                  example:
+                    - name: Macro 1
+                      description: Descrição da Macro 1
+                      micros:
+                        - name: Micro 1 da Macro 1
+                          description: Descrição da Micro 1 da Macro 1
+                        - name: Micro 2 da Macro 1
+                          description: Descrição da Micro 2 da Macro 1
+                    - name: Macro 2
+                      description: Descrição da Macro 2
+                      micros:
+                        - name: Micro 1 da Macro 2
+                          description: Descrição da Micro 1 da Macro 2
+                        - name: Micro 2 da Macro 2
+                          description: Descrição da Micro 2 da Macro 2
+              required:
+                - macros
+                  - micros
+  /files/pdf-project:
+    post:
+      x-api: fileservice
+      tags:
+        - Files
+        - Projects
+      security: []
+      summary: Upload do PDF de Projects.
+      description: Envia PDF em string de base 64 e retorna o link do arquivo.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                pdf:
+                  type: string
+                  example: data:application/pdf;base64,...
+                  description: PDF codificado em string de base 64
+  /files/pdf-project/{PdfHashName}:
+    get:
+      x-api: fileservice
+      tags:
+        - Files
+        - Project
+      security: []
+      summary: Buscar pdf de projeto.
+      description: Recupera pdf de projeto que tenha nome igual a PdfHashName.
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+      parameters:
+        - name: PdfHashName
+          in: path
+          schema:
+            type: string
+            example: dfgksdflkdsfglkndfgçlkndfglnkçnfgd.pdf
+          description: String correspondente ao hash que é nome de um pdf.
+          required: true
+    delete:
+      x-api: fileservice
+      tags:
+        - Files
+        - Project
+      security: []
+      summary: Deletar pdf de projeto.
+      description: Exclui pdf de projeto que tenha nome igual a PdfHashName.
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: PdfHashName
+          in: path
+          schema:
+            type: string
+            example: dfgksdflkdsfglkndfgçlkndfglnkçnfgd.pdf
+          description: String correspondente ao hash que é nome de um pdf.
+          required: true
+  /files/subjectImage:
+    post:
+      x-api: fileservice
+      tags:
+        - Files
+        - Users
+      security: []
+      summary: Upload de imagem de disciplina.
+      description: Envia imagem em string de base 64 e retorna o hash do nome do arquivo.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                image:
+                  type: string
+                  example: data:image/jpeg;base64...
+                  description: Imagem codificada em string de base 64
+  /files/subjectImage/{ImageHashName}:
+    get:
+      x-api: fileservice
+      tags:
+        - Files
+        - Users
+      security: []
+      summary: Download de avatar de usuário
+      description: Busca imagem de usuario no provedor de arquivos
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: ImageHashName
+          in: path
+          schema:
+            type: string
+            example: dfgksdflkdsfglkndfgçlkndfglnkçnfgd
+          description: String correspondente ao hash que é nome de uma imagem.
+          required: true
+    delete:
+      x-api: fileservice
+      tags:
+        - Files
+        - Users
+      security: []
+      summary: Deletar imagem de disciplina.
+      description: Exclui imagem de disciplina que tenha nome igual a ImageHashName.
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: ImageHashName
+          in: path
+          schema:
+            type: string
+            example: dfgksdflkdsfglkndfgçlkndfglnkçnfgd
+          description: String correspondente ao hash que é nome de uma imagem.
+          required: true
+  /categoria:
+    get:
+      x-api: projectservice
+      tags:
+        - Categorias
+      security: []
+      summary: Listar categorias
+      description: Retorna todas as categorias cadastradas
+      responses:
+        '200':
+          description: Sucesso
+    post:
+      x-api: projectservice
+      tags:
+        - Categorias
+      security: []
+      summary: Criar nova categoria
+      description: Cria uma nova categoria para utilização nos projetos.
+      responses:
+        '201':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                categoria:
+                  type: string
+                  example: Empresa Pública
+                  description: Categoria
+  /categoria/{categoriaId}:
+    delete:
+      x-api: projectservice
+      tags:
+        - Categorias
+      security: []
+      summary: Deletar uma categoria
+      description: Deleta uma categoria existente
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: categoriaId
+          in: path
+          schema:
+            type: number
+            example: 1
+          description: ID da categoria
+          required: true
+  /categoria/{projectId}:
+    post:
+      x-api: projectservice
+      tags:
+        - Categorias
+      security: []
+      summary: Adicionar uma categoria a um projeto
+      description: Adiciona uma categoria já existente a um projeto
+      responses:
+        '201':
+          description: Sucesso
+      parameters:
+        - name: projectId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: ID do projeto
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                categoria:
+                  type: string
+                  example: Empresa Pública
+                  description: Categoria
+  /class:
+    post:
+      x-api: projectservice
+      summary: Criar uma Turma
+      description: Criar uma Turma de uma disciplina
+      tags:
+        - Class
+      security: []
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                subjectId:
+                  type: string
+                  description: Id da disciplina
+                  example: '1'
+                semester:
+                  type: string
+                  description: O semestre a turma estará ocorrendo
+                  example: '1'
+                  enum: [['1', '2', 'VERAO']]
+                year:
+                  type: string
+                  description: Ano que a turma estará ocorrendo
+                  example: '2024'
+                periods:
+                  description: Lista dos períodos de aula que aquela turma terá
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      day:
+                        type: string
+                        description: Dia da semana que a aula ocorrerá
+                        example: 'segunda'
+                      timeStart:
+                        type: string
+                        description: Horário de início da aula
+                        example: '08:00'
+                      timeFinish:
+                        type: string
+                        description: Horário de término da aula
+                        example: '10:00'
+                teachers:
+                  description: Lista dos professores da Turma
+                  type: array
+                  items:
+                    type: number
+                    example: 1
+                monitors:
+                  description: Lista dos monitores da Turma
+                  type: array
+                  items:
+                    type: number
+                    example: 1
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Listar Turmas
+      description: Lista todas as Turmas
+      responses:
+        '200':
+          description: Sucesso
+  /class-extra-attributes:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      parameters:
+        - name: userType
+          in: query
+          schema:
+            type: string
+            example: 'Professor'
+          description: Tipo de usuário (aluno ou professor)
+          required: true
+      summary: Listar Turmas com mais detalhes
+      description: Lista todas as Turmas com detalhes extras
+      responses:
+        '200':
+          description: Sucesso
+  /my-classes-extra-attributes/{userId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: ID do usuário
+          required: true
+      summary: Listar Minhas Turmas Professor com mais detalhes
+      description: Lista Minhas Turmas Professor com detalhes extras
+      responses:
+        '200':
+          description: Sucesso
+  /class/{userId}/student:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: ID do usuário
+          required: true
+      summary: Listar Minhas Turmas Aluno com mais detalhes
+      description: Lista Minhas Turmas Aluno com detalhes extras
+      responses:
+        '200':
+          description: Sucesso
+  /{classId}/projetos:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: string
+            example: "12345"
+          description: ID da turma
+          required: true
+      summary: Listar projetos de uma turma
+      description: Retorna a lista de projetos associados a uma determinada turma.
+      responses:
+        '200':
+          description: Sucesso
+        '400':
+          description: Requisição inválida
+        '500':
+          description: Erro interno no servidor
+  /joinable-classes:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Lista todas as turmas disponíveis para ingresso
+      description: Lista todas as turmas que podem ser ingressadas pelo aluno, excluindo as turmas das disciplinas em que o aluno já está matriculado em alguma turma.
+      parameters:
+        - in: query
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: ID do usuário para o qual as turmas são listadas
+          example: '123'
+        - in: query
+          name: limit
+          required: true
+          schema:
+            type: integer
+          description: Limite de resultados a serem retornados
+          example: 10
+        - in: query
+          name: offset
+          required: true
+          schema:
+            type: integer
+          description: Offset para paginação dos resultados
+          example: 0
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    classId:
+                      type: integer
+                      example: 1
+                    subjectId:
+                      type: integer
+                      example: 1
+                    subjectName:
+                      type: string
+                      example: 'Nome da Disciplina'
+                    teachers:
+                      type: array
+                      items:
+                        type: string
+                        example: 'Nome do Professor'
+                    classNumber:
+                      type: integer
+                      example: 1
+                    studentJoinMethod:
+                      type: string
+                      example: 'codigo'
+                    accessCode:
+                      type: string
+                      example: 'ABCD1234'
+                    semester:
+                      type: string
+                      example: '1'
+                    year:
+                      type: integer
+                      example: 2023
+                    active:
+                      type: boolean
+                      example: true
+                    periods:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          day:
+                            type: string
+                            example: 'segunda'
+                          timeStart:
+                            type: string
+                            example: '08:00'
+                          timeFinish:
+                            type: string
+                            example: '09:30'
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Error fetching Class'
+  /class/{classId}/students:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Listar alunos de uma turma
+      description: Lista todos os alunos de uma turma pelo ID da turma.
+      responses:
+        '200':
+          description: "Lista de alunos da turma."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    fullName:
+                      type: string
+                      example: "Alice Smith"
+                    userId:
+                      type: integer
+                      example: 1
+                    userProfileImage:
+                      type: string
+                      nullable: true
+                      example: 'https://picsum.photos/200'
+                    Student.regNumber:
+                      type: string
+                      example: "190115564"
+        '400':
+          description: Requisição inválida
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: uuid
+            example: '550e8400-e29b-41d4-a716-446655440000'
+          description: Id da turma
+          required: true
+  /class/{classId}/join:
+    post:
+      x-api: projectservice
+      tags:
+        - Class - Ingresso na Turma
+      security: []
+      summary: Ingressar na Turma via Código de Acesso
+      description: Aluno ingressar em uma turma utilizando o Código de Acesso
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          description: ID da Turma
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: ID do usuário (aluno)
+                  example: 'abc123'
+                accessCode:
+                  type: string
+                  description: Código de Acesso para a turma
+                  example: '12345'
+              required:
+                - userId
+                - accessCode
+      responses:
+        '200':
+          description: Sucesso
+        '400':
+          description: Requisição inválida
+        '404':
+          description: Turma ou usuário não encontrado
+        '500':
+          description: Erro interno do servidor
+  /class/{classId}/join/manual:
+    post:
+      x-api: projectservice
+      tags:
+        - Class - Ingresso na Turma
+      security: []
+      summary: Adicionar manualmente um aluno em uma turma
+      description: Adiciona um aluno em uma turma já existente
+      responses:
+        '201':
+          description: Sucesso
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: ID da turma
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId:
+                  type: string
+                  example: 1
+                  description: Id do aluno
+  /class/{classId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Exibir detalhes de uma turma.
+      description: Exibe os detalhes de uma turma.
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: number
+            example: 4
+          description: ID da turma
+          required: true
+        - name: userId
+          in: query
+          schema:
+            type: number
+            example: 2
+          description: ID do usuário logado
+          required: true
+    put:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Editar uma Turma
+      description: Editar uma Turma de uma disciplina
+      parameters:
+        - in: path
+          name: classId
+          required: true
+          description: ID da Turma
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentJoinMethod:
+                  type: string
+                  description: Método de inserção de alunos na Turma
+                  enum: ['codigo', 'planilha', 'link', 'manual']
+                accessCode:
+                  type: string
+                  description: Código de acesso para os alunos, somente usado com o Método de inserção sendo código
+                  example: '12345'
+                semester:
+                  type: string
+                  description: O semestre a turma estará ocorrendo
+                  enum: ['1', '2', 'VERAO']
+                year:
+                  type: string
+                  description: Ano que a turma estará ocorrendo
+                  example: '2024'
+                periods:
+                  type: array
+                  description: Lista dos períodos de aula que aquela turma terá
+                  items:
+                    type: object
+                    properties:
+                      day:
+                        type: string
+                        description: Dia da semana que a aula ocorrerá
+                        example: 'segunda'
+                      timeStart:
+                        type: string
+                        description: Horário de início da aula
+                        example: '08:00'
+                      timeFinish:
+                        type: string
+                        description: Horário de término da aula
+                        example: '10:00'
+                teachers:
+                  type: array
+                  description: Lista dos IDs dos professores da turma
+                  items:
+                    type: number
+                    example: 1
+                monitors:
+                  type: array
+                  description: Lista dos IDs dos monitores da turma
+                  items:
+                    type: number
+                    example: 4
+      responses:
+        '200':
+          description: Sucesso
+        '400':
+          description: Requisição inválida
+        '404':
+          description: Turma não encontrada
+        '500':
+          description: Erro interno do servidor
+    delete:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Excluir classe
+      description: Exclui uma classe
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: number
+            example: 1
+          description: Id da classe
+          required: true
+    patch:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: uuid
+            example: '550e8400-e29b-41d4-a716-446655440000'
+          description: ID da turma
+          required: true
+      summary: Alterar o código de acesso de uma turma existente.
+      description: Atualiza a chave de acesso utilizada por alunos ou usuários para ingressar em uma turma.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                accessCode:
+                  type: string
+                  example: 'ABC123'
+                  description: Código de acesso para a turma
+              required:
+                - accessCode
+      responses:
+        '200':
+          description: Sucesso
+        '404':
+          description: Turma não encontrada
+  /class/{classId}/student:
+    delete:
+      x-api: projectservice
+      tags:
+        - Class
+      security: []
+      summary: Remover aluno de uma turma
+      description: Remove um aluno de uma turma pelo ID da turma e do aluno
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: classId
+          in: path
+          schema:
+            type: uuid
+            example: '550e8400-e29b-41d4-a716-446655440000'
+          description: Id da turma
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: number
+                  example: 1
+                  description: Id do aluno
+  /keyword:
+    get:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Listar palavras-chaves
+      description: Lista as palavras-chaves cadastradas na plataforma.
+      parameters:
+        - name: keyword
+          in: query
+          description: Nome da keyword
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucesso
+    post:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Criar palavra-chave
+      description: Cria uma nova palavra-chave para utilização nos projetos.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                keyword:
+                  type: string
+                  example: pjbl
+                  description: Palavra-chave
+                psp:
+                  type: string
+                  example: PSP1
+                  description: PSP
+  /keyword/abstract:
+    get:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Listar palavras-chaves relacionada em Abstract
+      description: Lista as palavras-chaves relacionadas a algum projeto.
+      responses:
+        '200':
+          description: Sucesso
+  /keyword/available:
+    get:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Listar palavras-chaves não associadas a nenhuma disciplina
+      description: Lista as palavras-chaves cadastradas na plataforma.
+      responses:
+        '200':
+          description: Sucesso
+    put:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Editar palavra-chave
+      description: Edita o valor de uma palavra-chave já cadastrada na plataforma.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                keywordid:
+                  type: number
+                  example: 1
+                  description: Id da palavra-chave
+                newKeyword:
+                  type: string
+                  example: newKeyword
+                  description: Nova palavra-chave
+  /keyword/subject:
+    post:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Associar disciplina à palavra-chave
+      description: Associa uma disciplina a uma palavra-chave
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                keywordid:
+                  type: number
+                  example: 1
+                  description: Id da palavra-chave
+                subjectid:
+                  type: number
+                  example: 2
+                  description: Id da disciplina
+    put:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Editar associação entre palavra-chave e disciplina
+      description: Edita a associação entre uma palavra-chave e uma disciplina
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                keywordid:
+                  type: number
+                  example: 1
+                  description: Id da palavra-chave
+                subjectid:
+                  type: number
+                  example: 2
+                  description: Id da disciplina
+  /keyword/subject/{keywordId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Exibe matéria relacionada a palavra chave
+      description: Exibe matéria relacionada a palavra chave desejada
+      responses:
+        '200':
+          description: Sucesso
+  /keyword/{keywordId}:
+    delete:
+      x-api: projectservice
+      tags:
+        - Keywords
+      security: []
+      summary: Excluir palavra-chave
+      description: Exclui uma palavra-chave da plataforma
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: keywordId
+          in: path
+          schema:
+            type: number
+            example: 1
+          description: Id da palavra-chave
+          required: true
+  /knowledgeareas:
+    get:
+      x-api: projectservice
+      tags:
+        - Areas
+      security: []
+      summary: Listar subáreas
+      description: Lista todas as subáreas cadastradas na plataforma
+      responses:
+        '200':
+          description: Sucesso
+  /getImage:
+    get:
+      x-api: projectservice
+      tags:
+        - Subject
+      security: []
+      summary: Obtém imagem
+      description: Obtem uma imagem presente em /images/subject
+      responses:
+        '200':
+          description: Sucesso
+  /professors:
+    get:
+      x-api: projectservice
+      tags:
+        - Professors
+      security: []
+      summary: Listar professores
+      description: Lista todos os professores cadastrados na plataforma
+      responses:
+        '200':
+          description: Sucesso
+  /project:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Retornar projetos existentes
+      description: Retorna lista de projetos cadastrados
+      parameters:
+        - name: name
+          in: query
+          description: Nome do projeto
+          required: false
+          schema:
+            type: string
+        - name: userId
+          in: query
+          description: Id do usuário relacionado ao Projeto
+          required: false
+          schema:
+            type: inteiro
+        - name: subjectId
+          in: query
+          description: Id da disciplina relacionado ao Projeto
+          required: false
+          schema:
+            type: inteiro
+        - name: semesterId
+          in: query
+          description: Id do semestre relacionado ao Projeto
+          required: false
+          schema:
+            type: inteiro
+        - name: status
+          in: query
+          description: Status do projeto
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sucesso
+    post:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Criar projeto
+      description: Cria um novo projeto.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                userId:
+                  type: number
+                  example: 3
+                  description: Id do usuário
+                semesterId:
+                  type: number
+                  example: 7
+                  description: Id do semestre
+                name:
+                  type: string
+                  example: My new project
+                  description: Nome do projeto
+                expectedResult:
+                  type: string
+                  example: New clients to my company
+                  description: Resultado esperado do projeto
+                feedback:
+                  type: string
+                  example: It is a feedback
+                  description: Feedback do projeto
+                problem:
+                  type: string
+                  example: My company does not have clients
+                  description: Descrição do problema que o projeto deverá resolver
+                status:
+                  type: string
+                  example: created
+                  description: Status do projeto
+                keywords:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      keywordid:
+                        type: number
+                        description: Id da palavra chave
+                        example: 1
+                      main:
+                        type: boolean
+                        description: Indica se a palavra chave é a principal
+                pdf:
+                  type: string
+                  description: PDF codificada em base 64
+                  example: data:application/pdf;base64,...
+              required:
+                - userId
+                - semesterId
+                - name
+                - expectedResult
+                - feedback
+                - problem
+                - status
+                - keywords
+    put:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Alterar projeto
+      description: Altera os dados do projeto
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                projectid:
+                  type: number
+                  example: 5
+                  description: Id do projeto
+                problem:
+                  type: string
+                  example: Problem to solve
+                  description: Problema a ser resolvido pelo projeto
+                expectedresult:
+                  type: string
+                  example: A new expected result here
+                  description: Resultado esperado para o projeto
+                keywords:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      keywordid:
+                        type: number
+                        description: Id da palavra chave
+                        example: 1
+                      main:
+                        type: boolean
+                        description: Indica se a palavra chave é a principal
+  /abstract:
+    get:
+      x-api: projectservice
+      tags:
+        - Abstract
+      security: []
+      summary: Listar Abstracts.
+      description: Listar Abstracts.
+      responses:
+        '200':
+          description: Sucesso
+  /projectEC:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Retornar projetos concluídos existentes
+      description: Retorna lista de projetos concluídos
+      responses:
+        '200':
+          description: Sucesso
+  /projectSemester:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Listar semestre ligadas em projetos.
+      description: Lista semestres ligadas em projetos.
+      responses:
+        '200':
+          description: Sucesso
+  /project/evaluate:
+    put:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Avaliar projeto
+      description: Avalia um projeto
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                projectid:
+                  type: number
+                  example: 5
+                  description: Id do projeto
+                status:
+                  type: string
+                  example: em_execucao
+                feedback:
+                  type: string
+                  example: This was a good project
+                  description: Conteúdo do feedback dado ao projeto
+  /project/reallocate:
+    put:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Realocar projeto
+      description: Realoca um projeto.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                projectid:
+                  type: number
+                  example: 1
+                  description: Id do projeto
+                subjectId:
+                  type: number
+                  example: 5
+                  description: Id da disciplina
+  /project/keywords:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Listar palavras-chaves disponíveis
+      description: Lista as palavras-chaves disponíveis para utilização em um projeto.
+      responses:
+        '200':
+          description: Sucesso
+  /project/{projectId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Exibir dados do projeto
+      description: Exibe os dados do projeto.
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: projectId
+          in: path
+          schema:
+            type: number
+            example: 4
+          description: Id do projeto
+          required: true
+    post:
+      x-api: projectservice
+      tags:
+        - Projects
+      summary: 'Adicionar subcategoria a projeto'
+      description: 'Adiciona uma subcategoria a um projeto'
+      responses:
+        '201':
+          description: Sucesso
+      security: []
+      parameters:
+        - name: projectId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: ID do projeto
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                subcategoria:
+                  type: string
+                  example: Confeitaria
+                  description: Subcategoria
+    delete:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Excluir projeto
+      description: Exclui um projeto.
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: projectId
+          in: path
+          schema:
+            type: number
+            example: 4
+          description: Id do projeto
+          required: true
+  /subject:
+    post:
+      x-api: projectservice
+      tags:
+        - Subjects
+      security: []
+      summary: Criar disciplina
+      description: Cria uma disciplina na plataforma.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                subject:
+                  type: object
+                  description: Dados da disciplina a ser cadastrada
+                  properties:
+                    name:
+                      type: string
+                      example: Desenvolvimento de software
+                      description: Nomeação da disciplina
+                    acronym:
+                      type: string
+                      example: DS
+                      description: Sigla da disciplina
+                    subjectGeneralObjective:
+                      type: string
+                      example: Esta é uma descrição detalhada dos objetivos da disciplina Desenvolvimento de software
+                      description: Descrição detalhada dos objetivos da disciplina
+                    courseSyllabus:
+                      type: string
+                      example: Este é um plano de estudos da disciplina Desenvolvimento de software
+                      description: Plano de estudos da disciplina
+                keywords:
+                  type: array
+                  description: Lista de palavras-chaves da disciplina (para v0, deve conter 1 unico item)
+                  items:
+                    type: object
+                    properties:
+                      keywordid:
+                        type: number
+                        example: 2
+                        description: Id da palavra-chave (deve ser uma palavra chave não associada a nenhuma disciplina)
+                subareas:
+                  type: array
+                  description: Lista de subáreas da disciplina
+                  items:
+                    type: object
+                    properties:
+                      subareaid:
+                        type: number
+                        example: 4
+                        description: Id da subárea
+                professors:
+                  type: array
+                  description: Lista de professores associados à disciplina
+                  items:
+                    type: object
+                    properties:
+                      regnumber:
+                        type: string
+                        example: '123456789'
+                        description: Matrícula do professor
+                image:
+                  type: string
+                  description: Imagem codificada em base 64
+                  example: data:image/jpeg;base64,...
+    get:
+      x-api: projectservice
+      tags:
+        - Subjects
+      security: []
+      summary: Listar disciplinas
+      description: Lista todas as disciplinas cadastradas na plataforma.
+      responses:
+        '200':
+          description: Sucesso
+  /subject/project:
+    get:
+      x-api: projectservice
+      tags:
+        - Subject
+      security: []
+      summary: Listar disciplinas ligadas em projetos.
+      description: Lista as disciplinas ligadas em projetos.
+      responses:
+        '200':
+          description: Sucesso
+  /subject/keywords:
+    get:
+      x-api: projectservice
+      tags:
+        - Subjects
+      security: []
+      summary: Listar palavras-chaves de disciplinas
+      description: Lista as palavras-chaves de disciplinas cadastradas na plataforma.
+      responses:
+        '200':
+          description: Sucesso
+  /subject/{subjectId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Subjects
+      security: []
+      summary: Exibir disciplina
+      description: Exibe uma disciplina.
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: subjectId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: Id da disciplina
+          required: true
+    put:
+      x-api: projectservice
+      tags:
+        - Subjects
+      security: []
+      summary: Editar disciplina
+      description: Edita uma disciplina
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: subjectId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: Id da disciplina
+          required: true
+    delete:
+      x-api: projectservice
+      tags:
+        - Subjects
+      security: []
+      summary: Excluir disciplina
+      description: Exclui uma disciplina
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: subjectId
+          in: path
+          schema:
+            type: number
+            example: 2
+          description: Id da disciplina
+          required: true
+  /subareas:
+    get:
+      x-api: projectservice
+      tags:
+        - Areas
+      security: []
+      summary: Listar subáreas
+      description: Lista todas as subáreas cadastradas na plataforma
+      responses:
+        '200':
+          description: Sucesso
+  /userProposals/{userId}:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+      security: []
+      summary: Listar propostas do usuário
+      description: Lista as propostas de um usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: number
+            example: 5
+          description: Id do usuário
+          required: true
+  /users:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Registrar novo usuário
+      description: Cria um usuário na plataforma
+      responses:
+        '201':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: Nome do usuário
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: johndoe@email.com
+                password:
+                  type: string
+                  description: Senha do usuário
+                  example: '@Abcd1234'
+                type:
+                  type: string
+                  enum: ['Agente Externo', 'Aluno', 'Professor']
+                  description: Tipo de usuário
+                  example: Aluno
+                externalAgentType:
+                  type: string
+                  enum: ['Pessoa Fisica', 'Pessoa Juridica']
+                  description: Tipo de agente externo
+                phoneNumber:
+                  type: string
+                  description: Número do telefone
+                  example: '11991234567'
+                cpf:
+                  type: string
+                  description: Número do CPF
+                  example: '25513933020'
+                cnpj:
+                  type: string
+                  description: Número do CNPJ
+                  example: '97089224000153'
+                companyName:
+                  type: string
+                  description: Nome da empresa
+                  example: My Company Co.
+                socialReason:
+                  type: string
+                  description: Razão social da empresa
+                  example: My Company
+                matricula:
+                  type: string
+                  description: Matrícula do aluno/professor
+                  example: '1234567'
+              required:
+                - name
+                - email
+                - password
+                - type
+                - phoneNumber
+  /users/{userId}:
+    put:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Editar usuário
+      description: Editar o perfil de um usuário da plataforma
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: '1'
+          description: Matrícula do aluno
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: Nome do usuário
+                  example: 'John Doe'
+                phoneNumber:
+                  type: string
+                  description: Telefone do usuário
+                  example: '61987654321'
+                matricula:
+                  type: string
+                  description: Matricula do usuário
+                  example: '201234705'
+              required:
+                - name
+                - phoneNumber
+                - matricula
+  /users/sessions:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Efetuar login
+      description: Autentica um usuário com email e senha e retorna um token de autenticação
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: johndoe@email.com
+                password:
+                  type: string
+                  description: Senha do usuário
+                  example: '@Abcd1234'
+              required:
+                - email
+                - password
+  /users/getUser/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Obter All Datas User
+      description: Obtém todos os dados de um usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: '1'
+          description: Id do usuário
+          required: true
+  /users/aluno/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Obter usuário
+      description: Obtém os dados de um usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: '1'
+          description: Matrícula do aluno
+          required: true
+  /users/aluno:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Obter todos os alunos
+      description: Retorna uma lista de todos os alunos cadastrados no sistema. Suporta filtro por nome, ordenação e limitação de resultados.
+      parameters:
+        - in: query
+          name: search
+          schema:
+            type: string
+          required: false
+          description: Filtro de busca pelo nome do aluno (parcial, insensível a maiúsculas/minúsculas)
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          required: false
+          description: Número máximo de alunos a serem retornados
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+            default: fullName
+          required: false
+          description: Campo utilizado para ordenação dos resultados
+      responses:
+        '200':
+          description: Lista de alunos retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                      example: "123e4567-e89b-12d3-a456-426614174000"
+                    regNumber:
+                      type: string
+                      example: "2023123456"
+                    fullName:
+                      type: string
+                      example: "Maria da Silva"
+  /users/password/{email}:
+    put:
+      x-api: userservice
+      security:
+        - token: []
+      tags:
+        - Users
+      summary: Alterar senha
+      description: Altera a senha do usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: email
+          in: path
+          schema:
+            type: string
+            example: 'johndoe@email.com'
+          description: Email do usuário
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                password:
+                  type: string
+                  example: '@Abcd1234'
+                  description: Nova senha
+  /users/recover:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Solicitar nova senha
+      description: Solicita uma nova senha por email
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+              required:
+                - email
+  /users/confirmReset:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Confirma que o token de recuperação é valido
+      description: Confirma que o token de recuperação é valido
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                token:
+                  type: string
+                  description: token de recuperação
+                  example: '$2b$10$raO8GHQxbqzNFUDWkuO6Hu8eMB2h'
+                id:
+                  type: string
+                  description: id do usuario
+                  example: '1'
+              required:
+                - token
+                - id
+  /users/reset:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Reseta e redefine a senha do usuário
+      description: Reseta e redefine a senha do usuário
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+                  description: id do usuario
+                  example: '1'
+                password:
+                  type: string
+                  description: nova senha do usuario
+                  example: 'puma123456!'
+                token:
+                  type: string
+                  description: token de recuperação
+                  example: '$2b$10$raO8GHQxbqzNFUDWkuO6Hu8eMB2h'
+              required:
+                - token
+                - id
+  /user-types:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security:
+        - token: []
+      summary: Criar tipo de usuário
+      description: Cria um tipo de usuário
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                typeName:
+                  type: string
+                  example: Novo tipo
+                  description: Nome do tipo de usuário
+                description:
+                  type: string
+                  example: Este é um novo tipo de usuário
+                  description: Descrição do novo tipo de usuário
+              required:
+                - typeName
+                - description
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security:
+        - token: []
+      summary: Listar tipos de usuários
+      description: Lista todos os tipos de usuários cadastrados na plataforma
+      responses:
+        '200':
+          description: Sucesso
+  /user-types/{UserTypeid}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Visualizar tipo de usuário
+      description: Visualiza os dados de um tipo de usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: UserTypeid
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do tipo de usuário
+          required: true
+    put:
+      x-api: userservice
+      tags:
+        - Users
+      security:
+        - token: []
+      summary: Editar tipo de usuário
+      description: Edita um tipo de usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: UserTypeid
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do tipo de usuário
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                typeName:
+                  type: string
+                  description: Novo nome do tipo de usuário
+                  example: Novo nome
+                description:
+                  type: string
+                  description: Nova descrição do tipo de usuário
+                  example: Nova descrição
+              required:
+                - typeName
+                - description
+    delete:
+      x-api: none
+      tags:
+        - Users
+      security: []
+      summary: Deletar tipo de usuário
+      description: Apaga um tipo de usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: UserTypeid
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do tipo de usuário
+          required: true
+  /users/cpf/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Retornar CPF do usuário
+      description: Retorna o CPF do usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do usuário
+          required: true
+  /users/juridical/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Retornar o Usuário Jurídico
+      description: Retorna o usuário jurídico do userId dado
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do usuário
+          required: true
+  /users/professor/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Retornar o Professor
+      description: Retorna o professor do userId dado
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do usuário
+          required: true
+  /users/student/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Retornar o Estudante
+      description: Retorna o estudante do userId dado
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do usuário
+          required: true
+  /users/student/{userId}/class:
+    get:
+      x-api: projectservice
+      tags:
+        - Users
+      security: []
+      summary: Lista todas as turmas de um estudante
+      description: Lista todas as turmas em que um estudante específico está matriculado.
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: ID do estudante cujas turmas serão listadas
+          example: '1'
+      responses:
+        '200':
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    classId:
+                      type: integer
+                      example: 1
+                    subjectId:
+                      type: integer
+                      example: 1
+                    classNumber:
+                      type: integer
+                      example: 1
+                    studentJoinMethod:
+                      type: string
+                      example: 'codigo'
+                    accessCode:
+                      type: string
+                      example: 'ABCD1234'
+                    semester:
+                      type: string
+                      example: '1'
+                    year:
+                      type: integer
+                      example: 2023
+                    active:
+                      type: boolean
+                      example: true
+                    periods:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          day:
+                            type: string
+                            example: 'segunda'
+                          timeStart:
+                            type: string
+                            example: '08:00'
+                          timeFinish:
+                            type: string
+                            example: '09:30'
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Error fetching classes'
+  /users/editalEmail:
+    post:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Registrar email para edital
+      description: Registra email quando não há edital aberto
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+              required:
+                - email
+  /users/hasEditalEmail:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+      security: []
+      summary: Checar um email para o edital
+      description: Checar se já existe um email cadastro para o edital
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+              required:
+                - email
+  /users/image/{userId}:
+    get:
+      x-api: userservice
+      tags:
+        - Users
+        - Files
+      security: []
+      summary: Obter imagem de usuário
+      description: Retorna a imagem de perfil do usuário
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+            example: 1
+          description: Id do usuário
+          required: true
+  /mails/recover:
+    post:
+      x-api: emailservice
+      tags:
+        - Mail
+      security: []
+      summary: Enviar email de recuperação
+      description: Envia email de recuperação de senha
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+              required:
+                - email
+  /mails/evaluate:
+    post:
+      x-api: emailservice
+      tags:
+        - Mail
+      security: []
+      summary: Envia email avisando sobre avaliação de projeto
+      description: Envia email avisando sobre avaliação de projeto (Recusado ou Aprovado) com texto de feedback
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: Nome do usuário
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+                status:
+                  type: string
+                  description: Sigla do status do projeto
+                  example: 'concluido'
+                feedback:
+                  type: string
+                  description: Feedback da avaliação
+                  example: 'Este projeto foi muito bom'
+              required:
+                - name
+                - email
+                - status
+  /mails/recadoStakeholder:
+    post:
+      x-api: emailservice
+      tags:
+        - Mail
+      security: []
+      summary: Envia email avisando sobre o andamento do projeto
+      description: Envia email avisando sobre o andamento do projeto para o stakeholder em projetos que estão em andamento
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: Nome do usuário
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+                status:
+                  type: string
+                  description: Sigla do status do projeto
+                  example: 'em_execucao'
+                feedback:
+                  type: string
+                  description: Feedback da avaliação
+                  example: 'Este projeto foi muito bom'
+              required:
+                - name
+                - email
+  /mails/avalieProjeto:
+    post:
+      x-api: emailservice
+      tags:
+        - Mail
+      security: []
+      summary: Envia email avisando sobre a avaliação do projeto
+      description: |
+        Envia um email notificando o usuário sobre a avaliação de seu projeto.
+        O email inclui um link para o projeto, onde o usuário pode avaliar o andamento do projeto.
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Nome do usuário
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: Email do usuário
+                  example: 'johndoe@email.com'
+                projectId:
+                  type: string
+                  description: ID único do projeto que está sendo avaliado.
+                  example: '123'
+              required:
+                - name
+                - email
+                - projectId
+  /priorization:
+    post:
+      x-api: projectservice
+      tags:
+        - Projects
+        - Classes
+        - Users
+      security: []
+      summary: Criar PriorizationProject
+      description: Associa uma priorização de um aluno presente em uma classe a um projeto
+      responses:
+        '201':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                priorizations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      priorization:
+                        type: integer
+                        example: 1
+                        description: Prioridade do projeto
+                      projectId:
+                        type: integer
+                        example: 1
+                        description: ID do projeto
+                userId:
+                  type: integer
+                  example: 1
+                  description: ID do usuário
+                classId:
+                  type: integer
+                  example: 1
+                  description: ID da classe
+  /assign-projects:
+    post:
+      x-api: projectservice
+      tags:
+        - Projects
+        - Classes
+      security: []
+      summary: Aloca equipe no projeto
+      description: Associa X usuários (Divisão entre numero de projetos e numero de pessoas na turma) dentro de um projeto
+      responses:
+        '201':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classId:
+                  type: string
+                  format: uuid
+                  example: '123e4567-e89b-12d3-a456-426614174000'
+                  description: ID da turma (UUID)
+  /projetoTurmas:
+    post:
+      x-api: projectservice
+      tags:
+        - Projects
+        - Classes
+      security: []
+      summary: Criar ProjetoTurmas
+      description: Associa uma ou várias Turmas a um Projeto
+      responses:
+        '201':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId:
+                  type: integer
+                  example: 1
+                  description: ID do projeto
+                classIds:
+                  type: array
+                  items:
+                    type: UUID
+                  example: ["eab020f9-c2af-4824-8e64-7b1385ac1e98", "55b8f4fb-e9b9-4639-9b8e-a3d4ace64b07"]
+                  description: Array de UUIDs das classes
+    delete:
+      x-api: projectservice
+      tags:
+        - Projects
+        - Classes
+      security: []
+      summary: Deletar ProjetoTurmas
+      description: Remove associação de uma ou várias Turmas a um Projeto
+      responses:
+        '200':
+          description: Sucesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId:
+                  type: integer
+                  example: 1
+                  description: ID do projeto
+                classIds:
+                  type: array
+                  items:
+                    type: UUID
+                  example: ["eab020f9-c2af-4824-8e64-7b1385ac1e98", "55b8f4fb-e9b9-4639-9b8e-a3d4ace64b07"]
+                  description: Array de UUIDs das classes
+  /project/{projectId}/pdf:
+    get:
+      x-api: projectservice
+      tags:
+        - Projects
+        - Files
+      security: []
+      summary: Obter PDF do projeto
+      description: Retorna o PDF do projeto
+      responses:
+        '200':
+          description: Sucesso
+      parameters:
+        - name: projectId
+          in: path
+          description: id do projeto
+          type: integer
+          required: true
+
+components:
+  securitySchemes:
+    token:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

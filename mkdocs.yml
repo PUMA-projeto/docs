@@ -1,7 +1,9 @@
 theme:
   name: material
-  logo: assets/logo.png
-  favicon: assets/favicon.ico
+  logo: assets/puma_logo.svg
+  favicon: assets/puma_logo.svg
+  icon:
+    annotation: material/plus-circle
   features:
     - navigation.tabs
     - search.suggest
@@ -17,16 +19,17 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.tabs.sticky
+    - navigation.footer
   palette:
     - scheme: default
-      primary: teal
-      accent: green
+      primary: blue
+      accent: cyan
       toggle:
         icon: material/weather-night
         name: Dark mode
     - scheme: slate
-      primary: teal
-      accent: green
+      primary: blue
+      accent: cyan
       toggle:
         icon: material/weather-sunny
         name: Light mode
@@ -36,12 +39,21 @@ site_description: Documentação técncica do projeto Puma
 site_author: Mateus Vieira & Lucas Antunes
 repo_url: https://github.com/PUMA-projeto/docs
 repo_name: GitHub
-
 plugins:
   - search:
       lang: en
-      separator: '[\s\-]+'
-
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed
+  - pymdownx.emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    # separator: '[\s\-]+'
 extra:
   analytics:
     provider: google
@@ -49,6 +61,12 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/PUMA-projeto/docs
+  footer:
+    copyright: "&copy; 2025 Mateus Vieira & Lucas Antunes. Todos os direitos reservados."
+    links:
+      - label: "GitHub"
+        icon: fontawesome/brands/github
+        url: https://github.com/PUMA-projeto/docs
 
 strict: true
 use_directory_urls: true
@@ -58,12 +76,40 @@ nav:
       - Ferramentas: projeto/ferramentas.md
       - Arquitetura: projeto/arquitetura.md
       - Ferramentas: projeto/ferramentas.md
+      - Refinamento: projeto/refinamento.md
   - Produto:
       - Visão Geral: produto/overview.md
       - MVP: projeto/mvp.md
       - Backlog: projeto/backlog.md
-      - API: produto/api.md
-      #- Banco de Dados: produto/database.md
+      - API:
+          - Emailservice: api/emailservice.md
+          - Fileservice: api/fileservice.md
+          - Projectservice:
+              - Visão Geral: api/projectservice/index.md
+              - Avaliação por Pares: api/projectservice/avaliacao.md
+              - Competências: api/projectservice/competencias.md
+              - Categorias: api/projectservice/categorias.md
+              - Turmas: api/projectservice/turmas.md
+              - Palavras-chave: api/projectservice/palavras-chave.md
+              - Áreas de Conhecimento: api/projectservice/areas-conhecimento.md
+              - Professores: api/projectservice/professores.md
+              - Projetos: api/projectservice/projetos.md
+              - Disciplinas: api/projectservice/disciplinas.md
+              - Usuários: api/projectservice/usuarios.md
+              - Associações: api/projectservice/associacoes.md
+          - Userservice: api/userservice.md
+  - PumaUX:
+      - Índice Sumário: pumaux_madspy/index.md
+      - Objetivos da Aplicação: pumaux_madspy/objetivos.md
+      - Arquitetura: pumaux_madspy/arquitetura.md
+      - Frontend: pumaux_madspy/frontend.md
+      - Backend: pumaux_madspy/backend.md
+      - Estrutura de Dados: pumaux_madspy/estrutura_dados.md
+      - Funcionalidades Principais: pumaux_madspy/funcionalidades.md
+      - Fluxo de Trabalho: pumaux_madspy/fluxo_trabalho.md
+      - Diferenciais da Aplicação: pumaux_madspy/diferenciais.md
+      - Hospedagem e Infraestrutura: pumaux_madspy/infraestrutura.md
+      - Segurança: pumaux_madspy/seguranca.md
   - Setup & Configuration:
       - MkDocs:
           - MkDocs Configuration: setup/mkdocs-configuration.md
@@ -73,3 +119,6 @@ nav:
           - Publishing Guide: setup/publishing-guide.md
       - README: setup/readme.md
   - References: references.md
+
+extra_css:
+  - assets/stylesheets/extra.css

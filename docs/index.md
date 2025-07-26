@@ -6,14 +6,14 @@ Bem-vindo à documentação do projeto PUMA! Aqui você encontrará todas as inf
 
 ## 📦 Documentação
 
-| Documento                                                               | Descrição                                               |
-| ----------------------------------------------------------------------- | ------------------------------------------------------- |
-| [Visão Geral do Projeto](produto/overview.md)                           | Resumo das funcionalidades e objetivos do produto.      |
+| Documento                                              | Descrição                                               |
+| ------------------------------------------------------ | ------------------------------------------------------- |
+| [Visão Geral do Projeto](produto/overview.md)          | Resumo das funcionalidades e objetivos do produto.      |
 | [Construção do Backlog do Produto](projeto/backlog.md) | Detalhamento dos requisitos e funcionalidades.          |
-| [MVP](projeto/mvp.md)                                                   | Escopo e critérios de sucesso do Produto Mínimo Viável. |
-| [Especificação da API](produto/api.md)                                  | Detalhamento dos endpoints e exemplos de uso.           |
-| [Arquitetura do Sistema](projeto/arquitetura.md)                        | Estrutura e componentes principais do sistema.          |
-| [Esquema do Banco de Dados](index.md)    **ON-Working**             | Modelo de dados e relacionamentos.                      |
+| [MVP](projeto/mvp.md)                                  | Escopo e critérios de sucesso do Produto Mínimo Viável. |
+| [Especificação da API](produto/api)                    | Detalhamento dos endpoints e exemplos de uso.           |
+| [Arquitetura do Sistema](projeto/arquitetura.md)       | Estrutura e componentes principais do sistema.          |
+| [Esquema do Banco de Dados](index.md) **ON-Working**   | Modelo de dados e relacionamentos.                      |
 
 ## ⚙️ Configuração
 
