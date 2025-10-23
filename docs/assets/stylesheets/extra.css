@@ -1,14 +1,35 @@
+
+/* Sidebar responsiva para mobile e desktop */
 .md-sidebar {
-    max-width: 100%;
-    overflow-x: visible;
-    box-sizing: content-box;
-    word-break: break-word;
-    position: relative;
-    z-index: 1;
-    height: 100%; /* Sidebar ocupa toda a altura do container pai */
+  height: 100%;
+  box-sizing: border-box;
 }
 
-footer {
-    position: relative;
-    z-index: 2;
+/* Ajuste para mobile: sidebar vira drawer/menu */
+@media (max-width: 768px) {
+  .md-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 101;
+  }
+  .md-sidebar--active {
+    transform: translateX(0);
+  }
+  .md-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+  }
+}
+
+/* Garante que a sidebar não ultrapasse o conteúdo */
+.md-sidebar, .md-content {
+  box-sizing: border-box;
 }

@@ -4,11 +4,6 @@ Documentação da API do PUMA. Mantenha essa documentação atualizada para o co
 
 ---
 
-## Informações Gerais
-
-- **Versão:** 1.0.0
-- **Servidor:** http://localhost:3001
-
 ## Endpoints
 
 ### Avaliação por Pares

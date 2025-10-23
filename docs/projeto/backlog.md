@@ -16,14 +16,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                     | FE-ID | Feature                      | US-ID | User Story                                   | Status |
 | ----- | ------------------------- | ----- | ---------------------------- | ----- | -------------------------------------------- | ------ |
-| EP-01 | Gestão da Página Pública  | FE-01 | Gerenciar Conteúdo da Página | US-01 | Editar textos e imagens da landing page      | ✅ |
-| EP-01 | Gestão da Página Pública  | FE-01 | Gerenciar Conteúdo da Página | US-02 | Gerenciar seções da landing page             | ✅ |
-| EP-01 | Gestão da Página Pública  | FE-02 | Gerenciar Links e Documentos | US-03 | Adicionar novos links na landing page        | ✅ |
-| EP-01 | Gestão da Página Pública  | FE-02 | Gerenciar Links e Documentos | US-04 | Remover links obsoletos da landing page      | ✅ |
-| EP-02 | Acompanhamento de Acessos | FE-03 | Relatórios de Acesso         | US-05 | Gerar relatórios de acesso à landing page    | ✅ |
-| EP-02 | Acompanhamento de Acessos | FE-03 | Relatórios de Acesso         | US-06 | Analisar documentos mais acessados na página | ✅ |
-| EP-02 | Acompanhamento de Acessos | FE-04 | Monitoramento de Interações  | US-07 | Monitorar seções mais acessadas              | ✅ |
-| EP-02 | Acompanhamento de Acessos | FE-04 | Monitoramento de Interações  | US-08 | Entender comportamento dos visitantes        | ✅ |
+| EP-01 | Gestão da Página Pública  | FE-01 | Gerenciar Conteúdo da Página | US-01 | Editar textos e imagens da landing page      | ✅     |
+| EP-01 | Gestão da Página Pública  | FE-01 | Gerenciar Conteúdo da Página | US-02 | Gerenciar seções da landing page             | ✅     |
+| EP-01 | Gestão da Página Pública  | FE-02 | Gerenciar Links e Documentos | US-03 | Adicionar novos links na landing page        | ✅     |
+| EP-01 | Gestão da Página Pública  | FE-02 | Gerenciar Links e Documentos | US-04 | Remover links obsoletos da landing page      | ✅     |
+| EP-02 | Acompanhamento de Acessos | FE-03 | Relatórios de Acesso         | US-05 | Gerar relatórios de acesso à landing page    | ❌     |
+| EP-02 | Acompanhamento de Acessos | FE-03 | Relatórios de Acesso         | US-06 | Analisar documentos mais acessados na página | ❌     |
+| EP-02 | Acompanhamento de Acessos | FE-04 | Monitoramento de Interações  | US-07 | Monitorar seções mais acessadas              | ❌     |
+| EP-02 | Acompanhamento de Acessos | FE-04 | Monitoramento de Interações  | US-08 | Entender comportamento dos visitantes        | ❌     |
 
 ---
 
@@ -31,14 +31,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                         | FE-ID | Feature                   | US-ID | User Story                                             | Status |
 | ----- | ----------------------------- | ----- | ------------------------- | ----- | ------------------------------------------------------ | ------ |
-| EP-03 | Autenticação de Usuário       | FE-05 | Registro de Usuário       | US-09 | Visitante se cadastrar no sistema                      | ✅ |
-| EP-03 | Autenticação de Usuário       | FE-05 | Registro de Usuário       | US-10 | Administrador cadastrar usuários manualmente           | ✅ |
-| EP-03 | Autenticação de Usuário       | FE-06 | Login de Usuário          | US-11 | Usuário realizar login                                 | ✅ |
-| EP-03 | Autenticação de Usuário       | FE-06 | Login de Usuário          | US-12 | Login seguro para área administrativa                  | ✅ |
-| EP-04 | Controle de Acesso de Usuário | FE-07 | Definir Papéis de Usuário | US-13 | Escolher papel no primeiro acesso                      | ✅ |
-| EP-04 | Controle de Acesso de Usuário | FE-07 | Definir Papéis de Usuário | US-14 | Alterar papel de usuários                              | ✅ |
-| EP-04 | Controle de Acesso de Usuário | FE-08 | Gerenciar Permissões      | US-15 | Definir permissões para cada papel                     | ✅ |
-| EP-04 | Controle de Acesso de Usuário | FE-08 | Gerenciar Permissões      | US-16 | Garantir acesso restrito dos alunos às suas atividades | ✅ |
+| EP-03 | Autenticação de Usuário       | FE-05 | Registro de Usuário       | US-09 | Visitante se cadastrar no sistema                      | ✅     |
+| EP-03 | Autenticação de Usuário       | FE-05 | Registro de Usuário       | US-10 | Administrador cadastrar usuários manualmente           | ✅     |
+| EP-03 | Autenticação de Usuário       | FE-06 | Login de Usuário          | US-11 | Usuário realizar login                                 | ✅     |
+| EP-03 | Autenticação de Usuário       | FE-06 | Login de Usuário          | US-12 | Login seguro para área administrativa                  | ✅     |
+| EP-04 | Controle de Acesso de Usuário | FE-07 | Definir Papéis de Usuário | US-13 | Escolher papel no primeiro acesso                      | ✅     |
+| EP-04 | Controle de Acesso de Usuário | FE-07 | Definir Papéis de Usuário | US-14 | Alterar papel de usuários                              | ✅     |
+| EP-04 | Controle de Acesso de Usuário | FE-08 | Gerenciar Permissões      | US-15 | Definir permissões para cada papel                     | ✅     |
+| EP-04 | Controle de Acesso de Usuário | FE-08 | Gerenciar Permissões      | US-16 | Garantir acesso restrito dos alunos às suas atividades | ✅     |
 
 ---
 
@@ -46,14 +46,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                        | FE-ID | Feature                  | US-ID | User Story                                       | Status |
 | ----- | ---------------------------- | ----- | ------------------------ | ----- | ------------------------------------------------ | ------ |
-| EP-05 | Gerenciamento de Usuários    | FE-09 | Criar Usuário            | US-17 | Cadastrar novos professores e agentes externos   | ✅ |
-| EP-05 | Gerenciamento de Usuários    | FE-09 | Criar Usuário            | US-18 | Professor cadastrar agente externo para projetos | ✅ |
-| EP-05 | Gerenciamento de Usuários    | FE-10 | Editar e Remover Usuário | US-19 | Editar dados de usuários                         | ✅ |
-| EP-05 | Gerenciamento de Usuários    | FE-10 | Editar e Remover Usuário | US-20 | Remover usuários inativos                        | ✅ |
-| EP-06 | Busca e Listagem de Usuários | FE-11 | Listagem de Usuários     | US-21 | Visualizar lista de usuários                     | ✅ |
-| EP-06 | Busca e Listagem de Usuários | FE-11 | Listagem de Usuários     | US-22 | Listar apenas alunos vinculados às turmas        | ✅ |
-| EP-06 | Busca e Listagem de Usuários | FE-12 | Filtro de Usuários       | US-23 | Filtrar usuários por nome, papel ou status       | ✅ |
-| EP-06 | Busca e Listagem de Usuários | FE-12 | Filtro de Usuários       | US-24 | Filtrar alunos nas turmas                        | ✅ |
+| EP-05 | Gerenciamento de Usuários    | FE-09 | Criar Usuário            | US-17 | Cadastrar novos professores e agentes externos   | ✅     |
+| EP-05 | Gerenciamento de Usuários    | FE-09 | Criar Usuário            | US-18 | Professor cadastrar agente externo para projetos | ✅     |
+| EP-05 | Gerenciamento de Usuários    | FE-10 | Editar e Remover Usuário | US-19 | Editar dados de usuários                         | ✅     |
+| EP-05 | Gerenciamento de Usuários    | FE-10 | Editar e Remover Usuário | US-20 | Remover usuários inativos                        | ✅     |
+| EP-06 | Busca e Listagem de Usuários | FE-11 | Listagem de Usuários     | US-21 | Visualizar lista de usuários                     | ✅     |
+| EP-06 | Busca e Listagem de Usuários | FE-11 | Listagem de Usuários     | US-22 | Listar apenas alunos vinculados às turmas        | ✅     |
+| EP-06 | Busca e Listagem de Usuários | FE-12 | Filtro de Usuários       | US-23 | Filtrar usuários por nome, papel ou status       | ✅     |
+| EP-06 | Busca e Listagem de Usuários | FE-12 | Filtro de Usuários       | US-24 | Filtrar alunos nas turmas                        | ✅     |
 
 ---
 
@@ -61,14 +61,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                      | FE-ID | Feature                 | US-ID | User Story                             | Status |
 | ----- | -------------------------- | ----- | ----------------------- | ----- | -------------------------------------- | ------ |
-| EP-07 | Gerenciamento de Projetos  | FE-13 | Criar e Editar Projetos | US-25 | Criar projetos vinculados às turmas    | ✅ |
-| EP-07 | Gerenciamento de Projetos  | FE-13 | Criar e Editar Projetos | US-26 | Cadastrar projetos gerais              | ✅ |
-| EP-07 | Gerenciamento de Projetos  | FE-14 | Remover Projetos        | US-27 | Remover projetos não executados        | ✅ |
-| EP-07 | Gerenciamento de Projetos  | FE-14 | Remover Projetos        | US-28 | Excluir projetos antigos ou obsoletos  | ✅ |
-| EP-08 | Acompanhamento de Projetos | FE-15 | Listagem de Projetos    | US-29 | Ver projetos coordenados               | ✅ |
-| EP-08 | Acompanhamento de Projetos | FE-15 | Listagem de Projetos    | US-30 | Ver projetos que participo             | ✅ |
-| EP-08 | Acompanhamento de Projetos | FE-16 | Filtro de Projetos      | US-31 | Buscar projetos por nome ou disciplina | ✅ |
-| EP-08 | Acompanhamento de Projetos | FE-16 | Filtro de Projetos      | US-32 | Buscar projetos disponíveis            | ✅ |
+| EP-07 | Gerenciamento de Projetos  | FE-13 | Criar e Editar Projetos | US-25 | Criar projetos vinculados às turmas    | ✅     |
+| EP-07 | Gerenciamento de Projetos  | FE-13 | Criar e Editar Projetos | US-26 | Cadastrar projetos gerais              | ✅     |
+| EP-07 | Gerenciamento de Projetos  | FE-14 | Remover Projetos        | US-27 | Remover projetos não executados        | ✅     |
+| EP-07 | Gerenciamento de Projetos  | FE-14 | Remover Projetos        | US-28 | Excluir projetos antigos ou obsoletos  | ✅     |
+| EP-08 | Acompanhamento de Projetos | FE-15 | Listagem de Projetos    | US-29 | Ver projetos coordenados               | ✅     |
+| EP-08 | Acompanhamento de Projetos | FE-15 | Listagem de Projetos    | US-30 | Ver projetos que participo             | ✅     |
+| EP-08 | Acompanhamento de Projetos | FE-16 | Filtro de Projetos      | US-31 | Buscar projetos por nome ou disciplina | ✅     |
+| EP-08 | Acompanhamento de Projetos | FE-16 | Filtro de Projetos      | US-32 | Buscar projetos disponíveis            | ✅     |
 
 ---
 
@@ -76,14 +76,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                        | FE-ID | Feature                    | US-ID | User Story                                      | Status |
 | ----- | ---------------------------- | ----- | -------------------------- | ----- | ----------------------------------------------- | ------ |
-| EP-09 | Gerenciamento de Disciplinas | FE-17 | Criar e Editar Disciplinas | US-33 | Criar disciplinas                               | ✅ |
-| EP-09 | Gerenciamento de Disciplinas | FE-17 | Criar e Editar Disciplinas | US-34 | Cadastrar disciplinas gerais                    | ✅ |
-| EP-09 | Gerenciamento de Disciplinas | FE-18 | Remover Disciplinas        | US-35 | Remover disciplinas não ofertadas               | ✅ |
-| EP-09 | Gerenciamento de Disciplinas | FE-18 | Remover Disciplinas        | US-36 | Excluir disciplinas obsoletas                   | ✅ |
-| EP-10 | Busca de Disciplinas         | FE-19 | Listagem de Disciplinas    | US-37 | Ver disciplinas ministradas                     | ✅ |
-| EP-10 | Busca de Disciplinas         | FE-19 | Listagem de Disciplinas    | US-38 | Ver disciplinas que estou matriculado           | ✅ |
-| EP-10 | Busca de Disciplinas         | FE-20 | Filtro de Disciplinas      | US-39 | Acompanhar progresso dos alunos nas disciplinas | ✅ |
-| EP-10 | Busca de Disciplinas         | FE-20 | Filtro de Disciplinas      | US-40 | Acompanhar meu progresso                        | ✅ |
+| EP-09 | Gerenciamento de Disciplinas | FE-17 | Criar e Editar Disciplinas | US-33 | Criar disciplinas                               | ✅     |
+| EP-09 | Gerenciamento de Disciplinas | FE-17 | Criar e Editar Disciplinas | US-34 | Cadastrar disciplinas gerais                    | ✅     |
+| EP-09 | Gerenciamento de Disciplinas | FE-18 | Remover Disciplinas        | US-35 | Remover disciplinas não ofertadas               | ✅     |
+| EP-09 | Gerenciamento de Disciplinas | FE-18 | Remover Disciplinas        | US-36 | Excluir disciplinas obsoletas                   | ✅     |
+| EP-10 | Busca de Disciplinas         | FE-19 | Listagem de Disciplinas    | US-37 | Ver disciplinas ministradas                     | ✅     |
+| EP-10 | Busca de Disciplinas         | FE-19 | Listagem de Disciplinas    | US-38 | Ver disciplinas que estou matriculado           | ✅     |
+| EP-10 | Busca de Disciplinas         | FE-20 | Filtro de Disciplinas      | US-39 | Acompanhar progresso dos alunos nas disciplinas | ✅     |
+| EP-10 | Busca de Disciplinas         | FE-20 | Filtro de Disciplinas      | US-40 | Acompanhar meu progresso                        | ✅     |
 
 ---
 
@@ -91,14 +91,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                    | FE-ID | Feature               | US-ID | User Story                                    | Status |
 | ----- | ------------------------ | ----- | --------------------- | ----- | --------------------------------------------- | ------ |
-| EP-11 | Gerenciamento de Turmas  | FE-21 | Criar e Editar Turmas | US-41 | Criar novas turmas vinculadas às disciplinas  | ✅ |
-| EP-11 | Gerenciamento de Turmas  | FE-21 | Criar e Editar Turmas | US-42 | Cadastrar turmas gerais                       | ✅ |
-| EP-11 | Gerenciamento de Turmas  | FE-22 | Remover Turmas        | US-43 | Remover turmas não realizadas                 | ✅ |
-| EP-11 | Gerenciamento de Turmas  | FE-22 | Remover Turmas        | US-44 | Excluir turmas inativas                       | ✅ |
-| EP-12 | Acompanhamento de Turmas | FE-23 | Listagem de Turmas    | US-45 | Listar todas as turmas                        | ✅ |
-| EP-12 | Acompanhamento de Turmas | FE-23 | Listagem de Turmas    | US-46 | Buscar turmas disponíveis                     | ✅ |
-| EP-12 | Acompanhamento de Turmas | FE-24 | Filtro de Turmas      | US-47 | Consultar informações sobre turmas            | ✅ |
-| EP-12 | Acompanhamento de Turmas | FE-24 | Filtro de Turmas      | US-48 | Acompanhar distribuição dos alunos nas turmas | ✅ |
+| EP-11 | Gerenciamento de Turmas  | FE-21 | Criar e Editar Turmas | US-41 | Criar novas turmas vinculadas às disciplinas  | ✅     |
+| EP-11 | Gerenciamento de Turmas  | FE-21 | Criar e Editar Turmas | US-42 | Cadastrar turmas gerais                       | ✅     |
+| EP-11 | Gerenciamento de Turmas  | FE-22 | Remover Turmas        | US-43 | Remover turmas não realizadas                 | ✅     |
+| EP-11 | Gerenciamento de Turmas  | FE-22 | Remover Turmas        | US-44 | Excluir turmas inativas                       | ✅     |
+| EP-12 | Acompanhamento de Turmas | FE-23 | Listagem de Turmas    | US-45 | Listar todas as turmas                        | ✅     |
+| EP-12 | Acompanhamento de Turmas | FE-23 | Listagem de Turmas    | US-46 | Buscar turmas disponíveis                     | ✅     |
+| EP-12 | Acompanhamento de Turmas | FE-24 | Filtro de Turmas      | US-47 | Consultar informações sobre turmas            | ✅     |
+| EP-12 | Acompanhamento de Turmas | FE-24 | Filtro de Turmas      | US-48 | Acompanhar distribuição dos alunos nas turmas | ✅     |
 
 ---
 
@@ -106,14 +106,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                    | FE-ID | Feature                     | US-ID | User Story                                     | Status |
 | ----- | ------------------------ | ----- | --------------------------- | ----- | ---------------------------------------------- | ------ |
-| EP-13 | Gerenciamento de Times   | FE-25 | Criar Times                 | US-49 | Criar times acadêmicos                         | ✅ |
-| EP-13 | Gerenciamento de Times   | FE-25 | Criar Times                 | US-50 | Criar times de apoio operacionais              | ✅ |
-| EP-13 | Gerenciamento de Times   | FE-26 | Gerenciar Times             | US-51 | Editar, excluir ou reorganizar membros do time | ✅ |
-| EP-13 | Gerenciamento de Times   | FE-26 | Gerenciar Times             | US-52 | Remover times inativos                         | ✅ |
-| EP-14 | Acompanhamento dos Times | FE-27 | Visualizar Meu Time         | US-53 | Ver informações do meu time                    | ✅ |
-| EP-14 | Acompanhamento dos Times | FE-27 | Visualizar Meu Time         | US-54 | Acompanhar status dos times                    | ✅ |
-| EP-14 | Acompanhamento dos Times | FE-28 | Acompanhar Status dos Times | US-55 | Gerar relatórios sobre status dos times        | ✅ |
-| EP-14 | Acompanhamento dos Times | FE-28 | Acompanhar Status dos Times | US-56 | Visualizar status geral dos times              | ✅ |
+| EP-13 | Gerenciamento de Times   | FE-25 | Criar Times                 | US-49 | Criar times acadêmicos                         | ✅     |
+| EP-13 | Gerenciamento de Times   | FE-25 | Criar Times                 | US-50 | Criar times de apoio operacionais              | ✅     |
+| EP-13 | Gerenciamento de Times   | FE-26 | Gerenciar Times             | US-51 | Editar, excluir ou reorganizar membros do time | ✅     |
+| EP-13 | Gerenciamento de Times   | FE-26 | Gerenciar Times             | US-52 | Remover times inativos                         | ❌     |
+| EP-14 | Acompanhamento dos Times | FE-27 | Visualizar Meu Time         | US-53 | Ver informações do meu time                    | ✅     |
+| EP-14 | Acompanhamento dos Times | FE-27 | Visualizar Meu Time         | US-54 | Acompanhar status dos times                    | ✅     |
+| EP-14 | Acompanhamento dos Times | FE-28 | Acompanhar Status dos Times | US-55 | Gerar relatórios sobre status dos times        | ❌     |
+| EP-14 | Acompanhamento dos Times | FE-28 | Acompanhar Status dos Times | US-56 | Visualizar status geral dos times              | ❌     |
 
 ---
 
@@ -121,14 +121,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                            | FE-ID | Feature              | US-ID | User Story                                        | Status |
 | ----- | -------------------------------- | ----- | -------------------- | ----- | ------------------------------------------------- | ------ |
-| EP-15 | Gerenciamento de Entregas        | FE-29 | Criar Nova Entrega   | US-57 | Criar nova entrega parcial ou final               | ✅ |
-| EP-15 | Gerenciamento de Entregas        | FE-29 | Criar Nova Entrega   | US-58 | Editar uma entrega antes do prazo                 | ✅ |
-| EP-15 | Gerenciamento de Entregas        | FE-30 | Acompanhar Entregas  | US-59 | Consultar histórico de entregas                   | ✅ |
-| EP-15 | Gerenciamento de Entregas        | FE-30 | Acompanhar Entregas  | US-60 | Visualizar todas as entregas feitas pelos times   | ✅ |
-| EP-16 | Validação e Feedback de Entregas | FE-31 | Validar Entregas     | US-61 | Validar e avaliar entregas                        | ✅ |
-| EP-16 | Validação e Feedback de Entregas | FE-31 | Validar Entregas     | US-62 | Solicitar ajustes nas entregas antes da avaliação | ✅ |
-| EP-16 | Validação e Feedback de Entregas | FE-32 | Feedback de Entregas | US-63 | Fornecer feedback sobre entregas                  | ✅ |
-| EP-16 | Validação e Feedback de Entregas | FE-32 | Feedback de Entregas | US-64 | Visualizar feedback recebido                      | ✅ |
+| EP-15 | Gerenciamento de Entregas        | FE-29 | Criar Nova Entrega   | US-57 | Criar nova entrega parcial ou final               | ✅     |
+| EP-15 | Gerenciamento de Entregas        | FE-29 | Criar Nova Entrega   | US-58 | Editar uma entrega antes do prazo                 | ✅     |
+| EP-15 | Gerenciamento de Entregas        | FE-30 | Acompanhar Entregas  | US-59 | Consultar histórico de entregas                   | ✅     |
+| EP-15 | Gerenciamento de Entregas        | FE-30 | Acompanhar Entregas  | US-60 | Visualizar todas as entregas feitas pelos times   | ✅     |
+| EP-16 | Validação e Feedback de Entregas | FE-31 | Validar Entregas     | US-61 | Validar e avaliar entregas                        | ✅     |
+| EP-16 | Validação e Feedback de Entregas | FE-31 | Validar Entregas     | US-62 | Solicitar ajustes nas entregas antes da avaliação | ✅     |
+| EP-16 | Validação e Feedback de Entregas | FE-32 | Feedback de Entregas | US-63 | Fornecer feedback sobre entregas                  | ✅     |
+| EP-16 | Validação e Feedback de Entregas | FE-32 | Feedback de Entregas | US-64 | Visualizar feedback recebido                      | ✅     |
 
 ---
 
@@ -136,14 +136,14 @@ Permitir que stakeholders conheçam o programa Puma, realizem login/cadastro, su
 
 | EP-ID | Épico                       | FE-ID | Feature                             | US-ID | User Story                                                     | Status |
 | ----- | --------------------------- | ----- | ----------------------------------- | ----- | -------------------------------------------------------------- | ------ |
-| EP-17 | Upload de Entregas Parciais | FE-33 | Upload de Entrega Parcial           | US-65 | Fazer upload de arquivos para entregas parciais                | ✅ |
-| EP-17 | Upload de Entregas Parciais | FE-33 | Upload de Entrega Parcial           | US-66 | Substituir arquivos da entrega parcial antes do prazo          | ✅ |
-| EP-17 | Upload de Entregas Parciais | FE-34 | Organização e Armazenamento Parcial | US-67 | Visualizar e recuperar arquivos de entregas parciais           | ✅ |
-| EP-17 | Upload de Entregas Parciais | FE-34 | Organização e Armazenamento Parcial | US-68 | Acessar arquivos das entregas parciais dos times               | ✅ |
-| EP-18 | Upload de Entregas Finais   | FE-35 | Upload de Entrega Final             | US-69 | Realizar upload da entrega final do projeto                    | ✅ |
-| EP-18 | Upload de Entregas Finais   | FE-35 | Upload de Entrega Final             | US-70 | Substituir arquivos da entrega final antes do prazo            | ✅ |
-| EP-18 | Upload de Entregas Finais   | FE-36 | Organização e Armazenamento Final   | US-71 | Acessar e visualizar os arquivos da minha entrega final        | ✅ |
-| EP-18 | Upload de Entregas Finais   | FE-36 | Organização e Armazenamento Final   | US-72 | Acessar arquivos das entregas finais para realizar a avaliação | ✅ |
+| EP-17 | Upload de Entregas Parciais | FE-33 | Upload de Entrega Parcial           | US-65 | Fazer upload de arquivos para entregas parciais                | ✅     |
+| EP-17 | Upload de Entregas Parciais | FE-33 | Upload de Entrega Parcial           | US-66 | Substituir arquivos da entrega parcial antes do prazo          | ✅     |
+| EP-17 | Upload de Entregas Parciais | FE-34 | Organização e Armazenamento Parcial | US-67 | Visualizar e recuperar arquivos de entregas parciais           | ✅     |
+| EP-17 | Upload de Entregas Parciais | FE-34 | Organização e Armazenamento Parcial | US-68 | Acessar arquivos das entregas parciais dos times               | ✅     |
+| EP-18 | Upload de Entregas Finais   | FE-35 | Upload de Entrega Final             | US-69 | Realizar upload da entrega final do projeto                    | ✅     |
+| EP-18 | Upload de Entregas Finais   | FE-35 | Upload de Entrega Final             | US-70 | Substituir arquivos da entrega final antes do prazo            | ✅     |
+| EP-18 | Upload de Entregas Finais   | FE-36 | Organização e Armazenamento Final   | US-71 | Acessar e visualizar os arquivos da minha entrega final        | ✅     |
+| EP-18 | Upload de Entregas Finais   | FE-36 | Organização e Armazenamento Final   | US-72 | Acessar arquivos das entregas finais para realizar a avaliação | ✅     |
 
 ## 1. Requisitos Funcionais
 

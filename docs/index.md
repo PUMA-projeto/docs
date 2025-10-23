@@ -8,7 +8,7 @@ Bem-vindo à documentação do projeto PUMA! Aqui você encontrará todas as inf
 
 | Documento                                              | Descrição                                               |
 | ------------------------------------------------------ | ------------------------------------------------------- |
-| [Visão Geral do Projeto](produto/overview.md)          | Resumo das funcionalidades e objetivos do produto.      |
+| [Visão Geral do Produto](produto/overview.md)          | Resumo das funcionalidades e objetivos do produto.      |
 | [Construção do Backlog do Produto](projeto/backlog.md) | Detalhamento dos requisitos e funcionalidades.          |
 | [MVP](projeto/mvp.md)                                  | Escopo e critérios de sucesso do Produto Mínimo Viável. |
 | [Especificação da API](produto/api)                    | Detalhamento dos endpoints e exemplos de uso.           |

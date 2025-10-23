@@ -98,6 +98,7 @@ nav:
               - Usuários: api/projectservice/usuarios.md
               - Associações: api/projectservice/associacoes.md
           - Userservice: api/userservice.md
+          - Swagger Documentation: api/swagger.md
   - PumaUX:
       - Índice Sumário: pumaux_madspy/index.md
       - Objetivos da Aplicação: pumaux_madspy/objetivos.md
